@@ -13,6 +13,9 @@ import foto from './assets/photo1.jpeg';
 import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import { Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot } from '@material-ui/lab';
+import FastfoodIcon from '@material-ui/icons/Fastfood';
+import LaptopMacIcon from '@material-ui/icons/LaptopMac';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,6 +32,12 @@ const useStyles = makeStyles((theme) => ({
   },
   myimg: {
     borderRadius: '8px',
+  },
+  paper: {
+    padding: '6px 16px',
+  },
+  secondaryTail: {
+    backgroundColor: theme.palette.secondary.main,
   },
 }));
 
@@ -59,6 +68,26 @@ function App() {
     {title: 'Contact me', link: '#'}
   ];
 
+  const skills = [
+    { title: 'Frontend Developer', 
+      content: [
+        {name: 'HTML', percent: '70%'},
+        {name: 'CSS', percent: '70%'},
+        {name: 'JavaScript', percent: '60%'},
+        {name: 'React', percent: '70%'},
+        {name: 'Vue', percent: '70%'},
+        {name: 'Bootstrap', percent: '70%'},
+      ]
+    },
+    { title: 'Backend Developer', 
+      content: [
+        {name: 'Flask', percent: '30%'},
+        {name: 'PHP', percent: '30%'},
+        {name: 'Django', percent: '20%'},
+      ]
+    }
+  ];
+
   return (
     <Fragment>
       <ThemeProvider theme={theme}>
@@ -79,8 +108,8 @@ function App() {
             </Box>
           </Toolbar>
         </AppBar>
-      {/* HELLO */}
         <Box m={7} >
+          {/* HELLO */}
           <Container maxWidth="md" component="main" className={classes.heroContent}>
             <Grid container spacing={3}>
               <Grid item xs={6}>         
@@ -103,7 +132,7 @@ function App() {
             </Grid>
           </Container>
 
-        {/* ABOUT ME */}
+          {/* ABOUT ME */}
           <Container maxWidth="md" className={classes.heroContent}>
             <Typography component="h6" variant="h6" color="textSecondary"  alignCenter>
               <Box fontSize="h3.fontSize"  fontWeight="fontWeightBold" textAlign="center">
@@ -154,6 +183,7 @@ function App() {
                 My technical level
               </Box>
             <Grid container spacing={5}>
+            { skills.map(skill => (
               <Grid item xs={6}>         
                 <Accordion>
                   <AccordionSummary
@@ -163,50 +193,84 @@ function App() {
                   >
                     <Typography color="textSecondary">
                       <Box fontSize="h5.fontSize"  fontWeight="fontWeightBold">
-                        Frontend developer
+                        {skill.title}
                       </Box>
                     </Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <Typography className={classes.root}>
+                      { skill.content.map( cont => (
                       <Box mb={1}>
-                        <Typography variant="body2" color="textSecondary" align="left">
-                          60%
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary" align="right">
-                          70%
-                        </Typography>
+                        <Grid container>
+                          <Grid item xs={12} sm={6}>
+                            <Typography variant="body2" color="textSecondary" align="left">
+                              <Box fontWeight="fontWeightBold">
+                                {cont.name}
+                              </Box>
+                            </Typography>
+                          </Grid>
+                          <Grid item xs={12} sm={6}>
+                            <Typography variant="body2" color="textSecondary" align="right">
+                              {cont.percent}
+                            </Typography>
+                          </Grid>
+                        </Grid>
+                        <BorderLinearProgress variant="determinate" value={70} />
                       </Box>
-                      <BorderLinearProgress variant="determinate" value={70} />
-                    </Typography>
-                  </AccordionDetails>
-                </Accordion>
-
-              </Grid>
-
-              <Grid item xs={6}>
-                <Accordion>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel2a-content"
-                    id="panel2a-header"
-                  >
-                    <Typography color="textSecondary">
-                      <Box fontSize="h5.fontSize"  fontWeight="fontWeightBold">
-                      Backend developer
-                      </Box>
-                    </Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                      sit amet blandit leo lobortis eget.
+                      ))}
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
               </Grid>
+            ))}
             </Grid>
             </Typography>
+          </Container>
+
+          {/* Education */}
+          <Container maxWidth="md" className={classes.heroContent}>
+            <Typography component="h6" variant="h6" color="textSecondary"  alignCenter>
+              <Box fontSize="h3.fontSize"  fontWeight="fontWeightBold" textAlign="center">
+                Education
+              </Box>
+              <Box textAlign="center" pb="1rem">
+                Currently studying
+              </Box>
+            </Typography>
+            <Timeline align="alternate">
+              <TimelineItem>
+                <TimelineSeparator>
+                  <TimelineDot>
+                    <FastfoodIcon />
+                  </TimelineDot>
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent>
+                  <Paper elevation={3} className={classes.paper}>
+                    <Typography variant="h6" component="h1">
+                      Eat
+                    </Typography>
+                    <Typography>Because you need strength</Typography>
+                  </Paper>
+                </TimelineContent>
+              </TimelineItem>
+              <TimelineItem>
+                <TimelineSeparator>
+                  <TimelineDot color="primary">
+                    <LaptopMacIcon />
+                  </TimelineDot>
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent>
+                  <Paper elevation={3} className={classes.paper}>
+                    <Typography variant="h6" component="h1">
+                      Code
+                    </Typography>
+                    <Typography>Because it&apos;s awesome!</Typography>
+                  </Paper>
+                </TimelineContent>
+              </TimelineItem>
+            </Timeline>
           </Container>
         </Box>
       </ThemeProvider>
