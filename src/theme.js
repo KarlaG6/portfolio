@@ -14,6 +14,9 @@ const theme = createMuiTheme({
         dark: '#8ebd9e',
         contrastText: '#fff'
       },
+      tertiary: {
+        it: '#d9ddbd'
+      }
     },
     typography: {
       fontFamily: `'Segoe UI', "Helvetica", "Arial", sans-serif`

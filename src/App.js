@@ -16,6 +16,17 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import { Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot } from '@material-ui/lab';
 import FastfoodIcon from '@material-ui/icons/Fastfood';
 import LaptopMacIcon from '@material-ui/icons/LaptopMac';
+import Carousel from 'react-material-ui-carousel';
+import Home from '@material-ui/icons/Home';
+
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
+import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+import SkipNextIcon from '@material-ui/icons/SkipNext';
+import { ChevronLeftRounded, ChevronRightRounded } from '@material-ui/icons';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,6 +50,32 @@ const useStyles = makeStyles((theme) => ({
   secondaryTail: {
     backgroundColor: theme.palette.secondary.main,
   },
+
+  cardRoot: {
+    display: 'flex',
+    justifyContent: 'space-evenly',
+    boxShadow: 'none'
+  },
+  details: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  divContent: {
+    alignSelf: 'center',
+    marginLeft: '1rem',
+  },
+  content: {
+    flex: '1 0 auto',
+  },
+  cover: {
+    width: '40%',
+    height: 'fit-content',
+    borderRadius: '8px',
+  },
+  playIcon: {
+    height: 38,
+    width: 38,
+  },
 }));
 
 const BorderLinearProgress = withStyles((theme) => ({
@@ -47,7 +84,7 @@ const BorderLinearProgress = withStyles((theme) => ({
     borderRadius: 5,
   },
   colorPrimary: {
-    backgroundColor: theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
+    backgroundColor: theme.palette.tertiary.it,
   },
   bar: {
     borderRadius: 5,
@@ -86,6 +123,18 @@ function App() {
         {name: 'Django', percent: '20%'},
       ]
     }
+  ];
+
+  const qualification = [
+    {title: 'Eat', content: 'Because you need strength' , icon: <FastfoodIcon />, color: 'secondary'},
+    {title: 'Code', content: 'Because it&apos;s awesome!' , icon: <LaptopMacIcon />, color: 'primary'},
+  ];
+
+  const portfolio = [
+    { name: 'Songs', desc: 'A single web app with React', img: foto},
+    { name: 'Weather', desc: 'A single web app with React', img: foto},
+    { name: 'Images', desc: 'A single web app with React', img: foto},
+    { name: 'Cocktails', desc: 'A single web app with React', img: foto},
   ];
 
   return (
@@ -187,7 +236,7 @@ function App() {
               <Grid item xs={6}>         
                 <Accordion>
                   <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
+                    expandIcon={<ExpandMoreIcon color="primary" />}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                   >
@@ -227,50 +276,87 @@ function App() {
             </Typography>
           </Container>
 
-          {/* Education */}
+          {/* Qualification */}
           <Container maxWidth="md" className={classes.heroContent}>
             <Typography component="h6" variant="h6" color="textSecondary"  alignCenter>
               <Box fontSize="h3.fontSize"  fontWeight="fontWeightBold" textAlign="center">
-                Education
+                Qualification
               </Box>
               <Box textAlign="center" pb="1rem">
                 Currently studying
               </Box>
             </Typography>
+
             <Timeline align="alternate">
-              <TimelineItem>
-                <TimelineSeparator>
-                  <TimelineDot>
-                    <FastfoodIcon />
-                  </TimelineDot>
-                  <TimelineConnector />
-                </TimelineSeparator>
-                <TimelineContent>
-                  <Paper elevation={3} className={classes.paper}>
-                    <Typography variant="h6" component="h1">
-                      Eat
-                    </Typography>
-                    <Typography>Because you need strength</Typography>
-                  </Paper>
-                </TimelineContent>
-              </TimelineItem>
-              <TimelineItem>
-                <TimelineSeparator>
-                  <TimelineDot color="primary">
-                    <LaptopMacIcon />
-                  </TimelineDot>
-                  <TimelineConnector />
-                </TimelineSeparator>
-                <TimelineContent>
-                  <Paper elevation={3} className={classes.paper}>
-                    <Typography variant="h6" component="h1">
-                      Code
-                    </Typography>
-                    <Typography>Because it&apos;s awesome!</Typography>
-                  </Paper>
-                </TimelineContent>
-              </TimelineItem>
+              {qualification.map( quali => (
+                <TimelineItem>
+                  <TimelineSeparator>
+                    <TimelineDot color={quali.color}>
+                      {quali.icon}
+                    </TimelineDot>
+                    <TimelineConnector />
+                  </TimelineSeparator>
+                  <TimelineContent>
+                    <Paper elevation={3} className={classes.paper}>
+                      <Typography variant="h6" component="h1">
+                        {quali.title}
+                      </Typography>
+                      <Typography>{quali.content}</Typography>
+                    </Paper>
+                  </TimelineContent>
+                </TimelineItem>
+              ))}
             </Timeline>
+          </Container>
+        
+          {/* Portfolio */}
+          <Container maxWidth="md" className={classes.heroContent}>
+            <Typography component="h6" variant="h6" color="textSecondary"  alignCenter>
+              <Box fontSize="h3.fontSize"  fontWeight="fontWeightBold" textAlign="center">
+                Portfolio
+              </Box>
+              <Box textAlign="center" pb="2rem">
+                Some of my projects
+              </Box>
+            </Typography>
+              
+            <Carousel navButtonsAlwaysVisible animation="slide" 
+                      autoPlay={false} timeout={350}
+                      NextIcon={<ExpandMoreIcon color="primary" />}
+                      PrevIcon={<ExpandMoreIcon color="primary" />}
+                      navButtonsProps={{
+                        style: {
+                            backgroundColor: 'transparent',
+                            // borderRadius: 0
+                        }
+                      }}
+                      indicatorIconButtonProps={{
+                        style: {
+                          color: theme.palette.tertiary.it
+                        }
+                      }} 
+                      activeIndicatorIconButtonProps={{
+                        style: {
+                          color: theme.palette.secondary.dark
+                        }
+                      }}
+            >
+              { portfolio.map( portf => (
+
+              <Card className={classes.cardRoot}>
+                {/* <CardMedia className={classes.cover} image={foto} title="Live"/> */}
+                <img src={portf.img} className={classes.cover} alt="foto"/>
+
+                <div className={classes.divContent}>
+                  <CardContent className={classes.content} >
+                    <Typography variant="h4"> {portf.name} </Typography>
+                    <Typography variant="body1"> {portf.desc} </Typography>
+                    <Button variant="contained" color="primary">Demo</Button>
+                  </CardContent>
+                </div>
+              </Card>
+              ))}
+            </Carousel>
           </Container>
         </Box>
       </ThemeProvider>
