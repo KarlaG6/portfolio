@@ -1,6 +1,6 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
-const theme = createMuiTheme({
+const myTheme = createMuiTheme({
     palette: {
       primary: {
         light: '#93a0ef',
@@ -22,4 +22,4 @@ const theme = createMuiTheme({
       fontFamily: `'Segoe UI', "Helvetica", "Arial", sans-serif`
     }
   });
-export default theme;
+export default myTheme;

@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import {Fragment} from 'react';
-import theme from './theme.js';
+import myTheme from './theme.js';
 import { Grid, Container, Box, Paper, AppBar, Toolbar, Typography, Link } from '@material-ui/core';
 import { makeStyles, ThemeProvider, withStyles } from '@material-ui/core/styles';
 import { spacing } from '@material-ui/system';
@@ -33,13 +33,13 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginRight: myTheme.spacing(2),
   },
   title: {
     flexGrow: 1,
   },
   heroContent: {
-    padding: theme.spacing(8, 0, 6),
+    padding: myTheme.spacing(8, 0, 6),
   },
   myimg: {
     borderRadius: '8px',
@@ -48,7 +48,12 @@ const useStyles = makeStyles((theme) => ({
     padding: '6px 16px',
   },
   secondaryTail: {
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: myTheme.palette.secondary.light,
+  },
+
+  footerBar: {
+    top: 'auto',
+    bottom: 0,
   },
 
   cardRoot: {
@@ -78,13 +83,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const BorderLinearProgress = withStyles((theme) => ({
+const BorderLinearProgress = withStyles((myTheme) => ({
   root: {
     height: 10,
     borderRadius: 5,
   },
   colorPrimary: {
-    backgroundColor: theme.palette.tertiary.it,
+    backgroundColor: myTheme.palette.tertiary.it,
   },
   bar: {
     borderRadius: 5,
@@ -139,7 +144,7 @@ function App() {
 
   return (
     <Fragment>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={myTheme}>
         <AppBar position="static" >
           <Toolbar>
             <Box flexGrow={1}><Button color="inherit">Karla</Button></Box>
@@ -157,9 +162,9 @@ function App() {
             </Box>
           </Toolbar>
         </AppBar>
-        <Box m={7} >
+
           {/* HELLO */}
-          <Container maxWidth="md" component="main" className={classes.heroContent}>
+          <Container component="main" className={classes.heroContent}>
             <Grid container spacing={3}>
               <Grid item xs={6}>         
                 <Typography component="h2" variant="h2" color="textSecondary" alignCenter>
@@ -182,45 +187,48 @@ function App() {
           </Container>
 
           {/* ABOUT ME */}
-          <Container maxWidth="md" className={classes.heroContent}>
-            <Typography component="h6" variant="h6" color="textSecondary"  alignCenter>
-              <Box fontSize="h3.fontSize"  fontWeight="fontWeightBold" textAlign="center">
-                About Me
-              </Box>
-              <Box textAlign="center" pb="1rem">
-                My Intro
-              </Box>
-            </Typography>
-            <Grid container spacing={7}>
+          <section className={classes.secondaryTail}>
 
-              <Grid item xs={6}>         
-                <img src={foto} width="100%" className={classes.myimg} alt="foto"/>
-              </Grid>
-
-              <Grid item xs={6}>
-                <Typography component="h2" variant="h2" color="textSecondary" alignCenter>
-
-                  <Box fontSize={19} color="textSecondary" fontWeight="400" pb={1} mx="auto">
-                    Me apasiona aprender cosas nuevas en el ámbito de la tecnología, y como esto es una tarea de nunca acabar, he terminado por desarrollar considerablemente mi lado autodidacta, lo cual me llena de confianza para asumir nuevos retos.
-                  </Box>
-                </Typography>
-                <Box py={1} >
-                  <Grid container spacing={3}>
-                    <Grid item xs={12} sm={4}>
-                      32+
-                    </Grid>
-                    <Grid item xs={12} sm={4}>
-                      <Paper > xs=12 sm=4</Paper>
-                    </Grid>
-                    <Grid item xs={12} sm={4}>
-                      <Paper > xs=12 sm=4</Paper>
-                    </Grid>
-                  </Grid>
+            <Container maxWidth="md" className={classes.heroContent}>
+              <Typography component="h6" variant="h6" color="textSecondary"  alignCenter>
+                <Box fontSize="h3.fontSize"  fontWeight="fontWeightBold" textAlign="center">
+                  About Me
                 </Box>
-                <Button variant="contained" color="primary">Download CV</Button>
+                <Box textAlign="center" pb="1rem">
+                  My Intro
+                </Box>
+              </Typography>
+              <Grid container spacing={7}>
+
+                <Grid item xs={6}>         
+                  <img src={foto} width="100%" className={classes.myimg} alt="foto"/>
+                </Grid>
+
+                <Grid item xs={6}>
+                  <Typography component="h2" variant="h2" color="textSecondary" alignCenter>
+
+                    <Box fontSize={19} color="textSecondary" fontWeight="400" pb={1} mx="auto">
+                      Me apasiona aprender cosas nuevas en el ámbito de la tecnología, y como esto es una tarea de nunca acabar, he terminado por desarrollar considerablemente mi lado autodidacta, lo cual me llena de confianza para asumir nuevos retos.
+                    </Box>
+                  </Typography>
+                  <Box py={1} >
+                    <Grid container spacing={3}>
+                      <Grid item xs={12} sm={4}>
+                        32+
+                      </Grid>
+                      <Grid item xs={12} sm={4}>
+                        <Paper > xs=12 sm=4</Paper>
+                      </Grid>
+                      <Grid item xs={12} sm={4}>
+                        <Paper > xs=12 sm=4</Paper>
+                      </Grid>
+                    </Grid>
+                  </Box>
+                  <Button variant="contained" color="primary">Download CV</Button>
+                </Grid>
               </Grid>
-            </Grid>
-          </Container>
+            </Container>
+          </section>
         
           {/* SKILLS */}
           <Container maxWidth="md" className={classes.heroContent}>
@@ -332,12 +340,12 @@ function App() {
                       }}
                       indicatorIconButtonProps={{
                         style: {
-                          color: theme.palette.tertiary.it
+                          color: myTheme.palette.tertiary.it
                         }
                       }} 
                       activeIndicatorIconButtonProps={{
                         style: {
-                          color: theme.palette.secondary.dark
+                          color: myTheme.palette.secondary.dark
                         }
                       }}
             >
@@ -358,17 +366,13 @@ function App() {
               ))}
             </Carousel>
           </Container>
-        </Box>
+          <AppBar position="static" className={classes.footerBar}>
+            <Container>
+                <Box py={4}><Button color="inherit">La mama de la mama de la mama</Button></Box>
+            </Container>
+        </AppBar>
       </ThemeProvider>
     </Fragment>
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //   </header>
-    // </div>
   );
 }
 
