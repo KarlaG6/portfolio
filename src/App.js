@@ -7,9 +7,12 @@ import { spacing } from '@material-ui/system';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import { green, pink } from '@material-ui/core/colors';
-import {ReactComponent as Blob1} from './assets/blob.svg';
+// import {ReactComponent as Blob1} from './assets/blob.svg';
+import blob from './assets/blob.svg';
 import Img1 from './assets/Fig1';
+import stickerk from './assets/stickerK1.png';
 import foto from './assets/photo1.jpeg';
+import foto2 from './assets/photo2.jpeg';
 import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import LinearProgress from '@material-ui/core/LinearProgress';
@@ -43,12 +46,22 @@ const useStyles = makeStyles((theme) => ({
   },
   myimg: {
     borderRadius: '8px',
+    boxShadow: '0px 2px 14px -1px rgb(146 148 146), 0px 1px 5px 0px rgb(66 71 107 / 86%), 0px 1px 9px 0px rgb(66 71 107 / 86%)',
   },
   paper: {
     padding: '6px 16px',
   },
   secondaryTail: {
-    backgroundColor: myTheme.palette.secondary.light,
+    backgroundColor: myTheme.palette.primary.light,
+  },
+
+  myHello: {
+    background: `url(${blob}) no-repeat`,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'flex-start'
+    
   },
 
   footerBar: {
@@ -76,6 +89,9 @@ const useStyles = makeStyles((theme) => ({
     width: '40%',
     height: 'fit-content',
     borderRadius: '8px',
+    boxShadow: '0px 2px 14px -1px rgb(146 148 146), 0px 1px 5px 0px rgb(66 71 107 / 86%), 0px 1px 9px 0px rgb(66 71 107 / 86%)',
+    marginTop: '1rem',
+    marginBottom: '1rem'
   },
   playIcon: {
     height: 38,
@@ -164,9 +180,9 @@ function App() {
         </AppBar>
 
           {/* HELLO */}
-          <Container component="main" className={classes.heroContent}>
-            <Grid container spacing={3}>
-              <Grid item xs={6}>         
+          <Container component="main" className={classes.heroContent} style={{ paddingBottom: 0}}>
+            <Grid container style={{ margin: 0}}>
+              <Grid item xs={6} className={classes.myHello}>         
                 <Typography component="h2" variant="h2" color="textSecondary" alignCenter>
                   <Box fontWeight="fontWeightBold" m={2} mx="auto">
                   Hola, soy Karla
@@ -178,10 +194,11 @@ function App() {
                     Una estudiante de ingeniería de sistemas con aspiración de crecer en el ámbito laboral como desarrolladora de software
                   </Box>
                 </Typography>
-                <Button variant="contained" color="primary">Contact Me</Button>
+                <Button variant="contained" color="primary" >Contact Me</Button>
               </Grid>
               <Grid item xs={6}>
-                <Img1 />
+                {/* <Img1 /> */}
+                <img src={stickerk} style={{ display: 'flex'}} />
               </Grid>
             </Grid>
           </Container>
@@ -191,36 +208,36 @@ function App() {
 
             <Container maxWidth="md" className={classes.heroContent}>
               <Typography component="h6" variant="h6" color="textSecondary"  alignCenter>
-                <Box fontSize="h3.fontSize"  fontWeight="fontWeightBold" textAlign="center">
+                <Box fontSize="h3.fontSize" color="primary.contrastText"  fontWeight="fontWeightBold" textAlign="center">
                   About Me
                 </Box>
-                <Box textAlign="center" pb="1rem">
+                <Box textAlign="center" color="primary.contrastText" pb="1rem">
                   My Intro
                 </Box>
               </Typography>
               <Grid container spacing={7}>
 
                 <Grid item xs={6}>         
-                  <img src={foto} width="100%" className={classes.myimg} alt="foto"/>
+                  <img src={foto2} width="100%" className={classes.myimg} alt="foto"/>
                 </Grid>
 
                 <Grid item xs={6}>
-                  <Typography component="h2" variant="h2" color="textSecondary" alignCenter>
+                  <Typography component="h2" variant="h2" alignCenter>
 
-                    <Box fontSize={19} color="textSecondary" fontWeight="400" pb={1} mx="auto">
+                    <Box fontSize={19} color="primary.contrastText" fontWeight="400" pb={1} mx="auto">
                       Me apasiona aprender cosas nuevas en el ámbito de la tecnología, y como esto es una tarea de nunca acabar, he terminado por desarrollar considerablemente mi lado autodidacta, lo cual me llena de confianza para asumir nuevos retos.
                     </Box>
                   </Typography>
-                  <Box py={1} >
+                  <Box py={1} color="primary.contrastText" >
                     <Grid container spacing={3}>
                       <Grid item xs={12} sm={4}>
                         32+
                       </Grid>
                       <Grid item xs={12} sm={4}>
-                        <Paper > xs=12 sm=4</Paper>
+                        32+
                       </Grid>
                       <Grid item xs={12} sm={4}>
-                        <Paper > xs=12 sm=4</Paper>
+                        32+
                       </Grid>
                     </Grid>
                   </Box>
