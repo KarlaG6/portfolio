@@ -47,6 +47,9 @@ const useStyles = makeStyles((theme) => ({
   myimg: {
     borderRadius: '8px',
     boxShadow: '0px 2px 14px -1px rgb(146 148 146), 0px 1px 5px 0px rgb(66 71 107 / 86%), 0px 1px 9px 0px rgb(66 71 107 / 86%)',
+    objectFit: 'cover',
+    height: '80%',
+    objectPosition: '0% 100%'
   },
   paper: {
     padding: '6px 16px',
@@ -57,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
 
   myHello: {
     background: `url(${blob}) no-repeat`,
+    backgroundPositionY: 'center',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -156,6 +160,16 @@ function App() {
     { name: 'Weather', desc: 'A single web app with React', img: foto},
     { name: 'Images', desc: 'A single web app with React', img: foto},
     { name: 'Cocktails', desc: 'A single web app with React', img: foto},
+  ];
+
+  const education = [
+    { title: 'INGENIERÍA DE SISTEMAS', institution: 'Universidad Libre seccional Barranquilla', date: '2021-2: Séptimo semestre', state: 'en curso'},
+    { title: 'BACHILLER CON PROFUNDIZACIÓN EN PEDAGOGÍA', institution: 'Escuela Normal Superior del Distrito de Barranquilla', date: '2017', state: 'Finalizado'},
+  ];
+
+  const work = [
+    { project: '', charge: '', activities: '', enterprise: '', date: ''},
+    { project: '', charge: '', activities: '', enterprise: '', date: ''},
   ];
 
   return (
@@ -311,6 +325,11 @@ function App() {
                 Currently studying
               </Box>
             </Typography>
+            
+            <Typography component="div" variant="h5"  style={{ display: 'flex', justifyContent: 'space-around'}}>
+              <Box>Education</Box>
+              <Box>Work</Box>
+            </Typography>
 
             <Timeline align="alternate">
               {qualification.map( quali => (
@@ -376,7 +395,7 @@ function App() {
                   <CardContent className={classes.content} >
                     <Typography variant="h4"> {portf.name} </Typography>
                     <Typography variant="body1"> {portf.desc} </Typography>
-                    <Button variant="contained" color="primary">Demo</Button>
+                    <Button variant="contained" color="primary" style={{marginTop: 5}} >Demo</Button>
                   </CardContent>
                 </div>
               </Card>
