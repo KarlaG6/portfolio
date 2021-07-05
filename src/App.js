@@ -163,15 +163,60 @@ function App() {
   ];
 
   const education = [
-    { title: 'INGENIERÍA DE SISTEMAS', institution: 'Universidad Libre seccional Barranquilla', date: '2021-2: Séptimo semestre', state: 'en curso'},
-    { title: 'BACHILLER CON PROFUNDIZACIÓN EN PEDAGOGÍA', institution: 'Escuela Normal Superior del Distrito de Barranquilla', date: '2017', state: 'Finalizado'},
+    { title: 'INGENIERÍA DE SISTEMAS', institution: 'Universidad Libre seccional Barranquilla', date: '2021-2: Séptimo semestre', state: 'en curso', icon: <FastfoodIcon />, color: 'secondary'},
+    { title: 'BACHILLER CON PROFUNDIZACIÓN EN PEDAGOGÍA', institution: 'Escuela Normal Superior del Distrito de Barranquilla', date: '2017', state: 'Finalizado', icon: <LaptopMacIcon />, color: 'primary'},
   ];
 
   const work = [
-    { project: '', charge: '', activities: '', enterprise: '', date: ''},
-    { project: '', charge: '', activities: '', enterprise: '', date: ''},
+    { project: 'Sitio web', charge: 'Ingeniero de desarrollo de destajo', activities: 'Frontend de la página (HTML, CSS, BOOTSTRAP y JQUERY)', enterprise: 'Horbath Technologies', date: 'Octubre del 2020 hasta Enero del 2021', icon: <FastfoodIcon />, color: 'secondary'},
+    { project: 'Sitio web', charge: 'Tester', activities: 'Testing y documentación web, móvil y CMS', enterprise: 'Horbath Technologies', date: 'Febrero del 2021', icon: <LaptopMacIcon />, color: 'primary'},
   ];
+  
+  const showQuali = () => {
+    let qualiCards = [];
+    for (let i=0; i < work.length; i++) {
+        // work
+        qualiCards.push(
+        <TimelineItem>
+          <TimelineSeparator>
+            <TimelineDot color={work[i].color}>
+            {work[i].icon}
+            </TimelineDot>
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent>
+            <Paper elevation={3} className={classes.paper}>
+              <Typography variant="h6" component="h1">
+                {work[i].project}
+              </Typography>
+              <Typography>{work[i].charge}</Typography>
+            </Paper>
+          </TimelineContent>
+        </TimelineItem>);
 
+        // Ed
+        qualiCards.push(
+        <TimelineItem>
+          <TimelineSeparator>
+            <TimelineDot color={education[i].color}>
+            {education[i].icon}
+            </TimelineDot>
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent>
+            <Paper elevation={3} className={classes.paper}>
+              <Typography variant="h6" component="h1">
+                {education[i].title}
+              </Typography>
+              <Typography>{education[i].institution}</Typography>
+            </Paper>
+          </TimelineContent>
+        </TimelineItem>);
+    }
+    console.log('Quali')
+    return qualiCards
+  };
+  
   return (
     <Fragment>
       <ThemeProvider theme={myTheme}>
@@ -255,7 +300,7 @@ function App() {
                       </Grid>
                     </Grid>
                   </Box>
-                  <Button variant="contained" color="primary">Download CV</Button>
+                  <Button variant="contained" color="primary" >Download CV</Button>
                 </Grid>
               </Grid>
             </Container>
@@ -332,7 +377,8 @@ function App() {
             </Typography>
 
             <Timeline align="alternate">
-              {qualification.map( quali => (
+              
+              {/* {qualification.map( quali => (
                 <TimelineItem>
                   <TimelineSeparator>
                     <TimelineDot color={quali.color}>
@@ -349,7 +395,9 @@ function App() {
                     </Paper>
                   </TimelineContent>
                 </TimelineItem>
-              ))}
+              ))} */}
+
+                { showQuali()}
             </Timeline>
           </Container>
         
@@ -364,26 +412,27 @@ function App() {
               </Box>
             </Typography>
               
-            <Carousel navButtonsAlwaysVisible animation="slide" 
-                      autoPlay={false} timeout={350}
-                      NextIcon={<ExpandMoreIcon color="primary" />}
-                      PrevIcon={<ExpandMoreIcon color="primary" />}
-                      navButtonsProps={{
-                        style: {
-                            backgroundColor: 'transparent',
-                            // borderRadius: 0
-                        }
-                      }}
-                      indicatorIconButtonProps={{
-                        style: {
-                          color: myTheme.palette.tertiary.it
-                        }
-                      }} 
-                      activeIndicatorIconButtonProps={{
-                        style: {
-                          color: myTheme.palette.secondary.dark
-                        }
-                      }}
+            <Carousel 
+              navButtonsAlwaysVisible animation="slide" 
+              autoPlay={false} timeout={350}
+              NextIcon={<ExpandMoreIcon color="primary" />}
+              PrevIcon={<ExpandMoreIcon color="primary" />}
+              navButtonsProps={{
+                style: {
+                    backgroundColor: 'transparent',
+                    // borderRadius: 0
+                }
+              }}
+              indicatorIconButtonProps={{
+                style: {
+                  color: myTheme.palette.tertiary.it
+                }
+              }} 
+              activeIndicatorIconButtonProps={{
+                style: {
+                  color: myTheme.palette.secondary.dark
+                }
+              }}
             >
               { portfolio.map( portf => (
 
