@@ -1,8 +1,10 @@
 import myTheme from "../theme";
-import { makeStyles, ThemeProvider, withStyles } from '@material-ui/core/styles';
+import { makeStyles, ThemeProvider} from '@material-ui/core/styles';
 import stickerk from '../assets/stickerK1.png';
 import blob from '../assets/blob.svg';
 import { Grid, Container, Box,Typography, Button } from '@material-ui/core';
+import '../App.css';
+
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -19,16 +21,23 @@ const useStyles = makeStyles((theme) => ({
     
   },
   bg0: {
-    animation: 'slide 3s ease-in-out infinite alternate',
-    backgroundImage: `linear-gradient(-60deg, ${myTheme.palette.secondary.main} 50%, ${myTheme.palette.primary.light} 50%)`,
-    
+    animation: 'mySlide 4s ease-in-out infinite alternate',
+    backgroundImage: `linear-gradient(-60deg, ${myTheme.palette.primary.light} 50%, ${myTheme.palette.secondary.light} 50%)`,
+    // opacity: 1,
     bottom:0,
     left:'-50%',
-    // opacity:'.5',
-    // position:'fixed',
+    opacity:'.5',
+    position:'fixed',
     right:'-50%',
     top:0,
     zIndex: '-1'
+  },
+  bg1:{
+    animationDirection: 'alternate-reverse',
+    animationDuration: '5s',
+  },
+  bg2:{
+    animationDuration: '6s',
   },
   content: {
     left: '50%',
@@ -37,6 +46,14 @@ const useStyles = makeStyles((theme) => ({
     // textAlign: 'center',
     position: 'relative',
     zIndex: '99999'
+  },
+  "@keyframes mySlide": {
+    "0%": {
+      transform:'translateX(-25%)'
+    },
+    "100%": {
+      transform:'translateX(25%)'
+    }
   }
 }));
 
@@ -45,8 +62,8 @@ const Hello = () => {
 
   return ( 
     <ThemeProvider theme={myTheme}>
-      <Container component="main" className={classes.heroContent} style={{ paddingBottom: 0}}>
-          <div className={classes.bg0}><div className="bg1"><div className="bg2">
+      <div className={classes.bg0}></div><div className={classes.bg0+' '+classes.bg1}></div><div className={classes.bg0+' '+classes.bg2}></div>
+        <Container component="main" className={classes.heroContent} style={{ paddingBottom: 0}}>
 
           <Grid className={classes.content} container style={{ margin: 0}}>
             <Grid item xs={6} className={classes.myHello}>         
@@ -68,8 +85,8 @@ const Hello = () => {
               <img src={stickerk} style={{ display: 'flex'}} />
             </Grid>
           </Grid>
-        </div></div></div>
-      </Container>
+        </Container>
+      
     </ThemeProvider>
   );
 }

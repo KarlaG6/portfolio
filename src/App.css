@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+@keyframes mySlide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+  }
+}
