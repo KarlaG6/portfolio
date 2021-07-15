@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import {Fragment} from 'react';
 import myTheme from './theme.js';
 import { Grid, Container, Box, Paper, AppBar, Toolbar, Typography, Link } from '@material-ui/core';
@@ -6,13 +5,9 @@ import { makeStyles, ThemeProvider, withStyles } from '@material-ui/core/styles'
 import { spacing } from '@material-ui/system';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import { green, pink } from '@material-ui/core/colors';
 // import {ReactComponent as Blob1} from './assets/blob.svg';
 import blob from './assets/blob.svg';
-import Img1 from './assets/Fig1';
-import stickerk from './assets/stickerK1.png';
 import foto from './assets/photo1.jpeg';
-import foto2 from './assets/photo2.jpeg';
 import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import LinearProgress from '@material-ui/core/LinearProgress';
@@ -28,7 +23,11 @@ import CardMedia from '@material-ui/core/CardMedia';
 import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
+import Icon from '@material-ui/core/Icon';
 import { ChevronLeftRounded, ChevronRightRounded } from '@material-ui/icons';
+import Hello from './components/Hello';
+import AboutMe from './components/AboutMe.js';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -123,11 +122,11 @@ function App() {
 
   const navOptions = [
     {title: 'Home', link: '#'},
-    {title: 'About', link: '#'},
-    {title: 'Skills', link: '#'},
-    {title: 'Services', link: '#'},
-    {title: 'Portfolio', link: '#'},
-    {title: 'Contact me', link: '#'}
+    {title: 'About', link: '#aboutMe'},
+    {title: 'Skills', link: '#skills'},
+    {title: 'Services', link: '#services'},
+    {title: 'Portfolio', link: '#portfolio'},
+    {title: 'Contact me', link: '#contactMe'}
   ];
 
   const skills = [
@@ -152,7 +151,7 @@ function App() {
 
   const qualification = [
     {title: 'Eat', content: 'Because you need strength' , icon: <FastfoodIcon />, color: 'secondary'},
-    {title: 'Code', content: 'Because it&apos;s awesome!' , icon: <LaptopMacIcon />, color: 'primary'},
+    {title: 'Code', content: 'Because it&apos;s awesome!' , icon: <LaptopMacIcon />, color: 'primary'}
   ];
 
   const portfolio = [
@@ -164,12 +163,12 @@ function App() {
 
   const education = [
     { title: 'INGENIERÍA DE SISTEMAS', institution: 'Universidad Libre seccional Barranquilla', date: '2021-2: Séptimo semestre', state: 'en curso', icon: <FastfoodIcon />, color: 'secondary'},
-    { title: 'BACHILLER CON PROFUNDIZACIÓN EN PEDAGOGÍA', institution: 'Escuela Normal Superior del Distrito de Barranquilla', date: '2017', state: 'Finalizado', icon: <LaptopMacIcon />, color: 'primary'},
+    { title: 'BACHILLER CON PROFUNDIZACIÓN EN PEDAGOGÍA', institution: 'Escuela Normal Superior del Distrito de Barranquilla', date: '2017', state: 'Finalizado', icon: <LaptopMacIcon />, color: 'primary'}
   ];
 
   const work = [
     { project: 'Sitio web', charge: 'Ingeniero de desarrollo de destajo', activities: 'Frontend de la página (HTML, CSS, BOOTSTRAP y JQUERY)', enterprise: 'Horbath Technologies', date: 'Octubre del 2020 hasta Enero del 2021', icon: <FastfoodIcon />, color: 'secondary'},
-    { project: 'Sitio web', charge: 'Tester', activities: 'Testing y documentación web, móvil y CMS', enterprise: 'Horbath Technologies', date: 'Febrero del 2021', icon: <LaptopMacIcon />, color: 'primary'},
+    { project: 'Sitio web', charge: 'Tester', activities: 'Testing y documentación web, móvil y CMS', enterprise: 'Horbath Technologies', date: 'Febrero del 2021', icon: <LaptopMacIcon />, color: 'primary'}
   ];
   
   const showQuali = () => {
@@ -213,7 +212,6 @@ function App() {
           </TimelineContent>
         </TimelineItem>);
     }
-    console.log('Quali')
     return qualiCards
   };
   
@@ -222,7 +220,7 @@ function App() {
       <ThemeProvider theme={myTheme}>
         <AppBar position="static" >
           <Toolbar>
-            <Box flexGrow={1}><Button color="inherit">Karla</Button></Box>
+            <Box flexGrow={1}><Button color="inherit">Karla galvis</Button></Box>
             <Box >
               <Typography variant="h6" className={classes.title} color="inherit">
               <Grid container spacing={3}>
@@ -239,221 +237,146 @@ function App() {
         </AppBar>
 
           {/* HELLO */}
-          <Container component="main" className={classes.heroContent} style={{ paddingBottom: 0}}>
-            <Grid container style={{ margin: 0}}>
-              <Grid item xs={6} className={classes.myHello}>         
-                <Typography component="h2" variant="h2" color="textSecondary" alignCenter>
-                  <Box fontWeight="fontWeightBold" m={2} mx="auto">
-                  Hola, soy Karla
-                  </Box>
-                  <Box fontSize="h5.fontSize" color="textSecondary" fontWeight="fontWeightMedium" >
-                    Frontend developer
-                  </Box>
-                  <Box fontSize={19}  color="textSecondary" fontWeight="400" m={2} mx="auto">
-                    Una estudiante de ingeniería de sistemas con aspiración de crecer en el ámbito laboral como desarrolladora de software
-                  </Box>
-                </Typography>
-                <Button variant="contained" color="primary" >Contact Me</Button>
-              </Grid>
-              <Grid item xs={6}>
-                {/* <Img1 /> */}
-                <img src={stickerk} style={{ display: 'flex'}} />
-              </Grid>
-            </Grid>
-          </Container>
+          <Hello />
 
           {/* ABOUT ME */}
-          <section className={classes.secondaryTail}>
-
-            <Container maxWidth="md" className={classes.heroContent}>
-              <Typography component="h6" variant="h6" color="textSecondary"  alignCenter>
-                <Box fontSize="h3.fontSize" color="primary.contrastText"  fontWeight="fontWeightBold" textAlign="center">
-                  About Me
-                </Box>
-                <Box textAlign="center" color="primary.contrastText" pb="1rem">
-                  My Intro
-                </Box>
-              </Typography>
-              <Grid container spacing={7}>
-
-                <Grid item xs={6}>         
-                  <img src={foto2} width="100%" className={classes.myimg} alt="foto"/>
-                </Grid>
-
-                <Grid item xs={6}>
-                  <Typography component="h2" variant="h2" alignCenter>
-
-                    <Box fontSize={19} color="primary.contrastText" fontWeight="400" pb={1} mx="auto">
-                      Me apasiona aprender cosas nuevas en el ámbito de la tecnología, y como esto es una tarea de nunca acabar, he terminado por desarrollar considerablemente mi lado autodidacta, lo cual me llena de confianza para asumir nuevos retos.
-                    </Box>
-                  </Typography>
-                  <Box py={1} color="primary.contrastText" >
-                    <Grid container spacing={3}>
-                      <Grid item xs={12} sm={4}>
-                        32+
-                      </Grid>
-                      <Grid item xs={12} sm={4}>
-                        32+
-                      </Grid>
-                      <Grid item xs={12} sm={4}>
-                        32+
-                      </Grid>
-                    </Grid>
-                  </Box>
-                  <Button variant="contained" color="primary" >Download CV</Button>
-                </Grid>
-              </Grid>
-            </Container>
-          </section>
+          <AboutMe />
         
           {/* SKILLS */}
-          <Container maxWidth="md" className={classes.heroContent}>
-            <Typography component="h6" variant="h6" color="textSecondary"  alignCenter>
-              <Box fontSize="h3.fontSize"  fontWeight="fontWeightBold" textAlign="center">
-                Skills
-              </Box>
-              <Box textAlign="center" pb="1rem">
-                My technical level
-              </Box>
-            <Grid container spacing={5}>
-            { skills.map(skill => (
-              <Grid item xs={6}>         
-                <Accordion>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon color="primary" />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                  >
-                    <Typography color="textSecondary">
-                      <Box fontSize="h5.fontSize"  fontWeight="fontWeightBold">
-                        {skill.title}
-                      </Box>
-                    </Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography className={classes.root}>
-                      { skill.content.map( cont => (
-                      <Box mb={1}>
-                        <Grid container>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="body2" color="textSecondary" align="left">
-                              <Box fontWeight="fontWeightBold">
-                                {cont.name}
-                              </Box>
-                            </Typography>
+          <section id="skills">
+            <Container maxWidth="md" className={classes.heroContent}>
+              <Typography component="h6" variant="h6" color="textSecondary"  alignCenter>
+                <Box fontSize="h3.fontSize"  fontWeight="fontWeightBold" textAlign="center">
+                  Skills
+                </Box>
+                <Box textAlign="center" pb="1rem">
+                  My technical level
+                </Box>
+              <Grid container spacing={5}>
+              { skills.map(skill => (
+                <Grid item xs={6}>         
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon color="primary" />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <Typography color="textSecondary">
+                        <Box fontSize="h5.fontSize"  fontWeight="fontWeightBold">
+                          {skill.title}
+                        </Box>
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography className={classes.root}>
+                        { skill.content.map( cont => (
+                        <Box mb={1}>
+                          <Grid container>
+                            <Grid item xs={12} sm={6}>
+                              <Typography variant="body2" color="textSecondary" align="left">
+                                <Box fontWeight="fontWeightBold">
+                                  {cont.name}
+                                </Box>
+                              </Typography>
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                              <Typography variant="body2" color="textSecondary" align="right">
+                                {cont.percent}
+                              </Typography>
+                            </Grid>
                           </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="body2" color="textSecondary" align="right">
-                              {cont.percent}
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                        <BorderLinearProgress variant="determinate" value={70} />
-                      </Box>
-                      ))}
-                    </Typography>
-                  </AccordionDetails>
-                </Accordion>
+                          <BorderLinearProgress variant="determinate" value={70} />
+                        </Box>
+                        ))}
+                      </Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                </Grid>
+              ))}
               </Grid>
-            ))}
-            </Grid>
-            </Typography>
-          </Container>
+              </Typography>
+            </Container>
+          </section>
 
           {/* Qualification */}
-          <Container maxWidth="md" className={classes.heroContent}>
-            <Typography component="h6" variant="h6" color="textSecondary"  alignCenter>
-              <Box fontSize="h3.fontSize"  fontWeight="fontWeightBold" textAlign="center">
-                Qualification
-              </Box>
-              <Box textAlign="center" pb="1rem">
-                Currently studying
-              </Box>
-            </Typography>
-            
-            <Typography component="div" variant="h5"  style={{ display: 'flex', justifyContent: 'space-around'}}>
-              <Box>Education</Box>
-              <Box>Work</Box>
-            </Typography>
-
-            <Timeline align="alternate">
+          <section id="qualification">
+            <Container maxWidth="md" className={classes.heroContent}>
+              <Typography component="h6" variant="h6" color="textSecondary"  alignCenter>
+                <Box fontSize="h3.fontSize"  fontWeight="fontWeightBold" textAlign="center">
+                  Qualification
+                </Box>
+                <Box textAlign="center" pb="1rem">
+                  Currently studying
+                </Box>
+              </Typography>
               
-              {/* {qualification.map( quali => (
-                <TimelineItem>
-                  <TimelineSeparator>
-                    <TimelineDot color={quali.color}>
-                      {quali.icon}
-                    </TimelineDot>
-                    <TimelineConnector />
-                  </TimelineSeparator>
-                  <TimelineContent>
-                    <Paper elevation={3} className={classes.paper}>
-                      <Typography variant="h6" component="h1">
-                        {quali.title}
-                      </Typography>
-                      <Typography>{quali.content}</Typography>
-                    </Paper>
-                  </TimelineContent>
-                </TimelineItem>
-              ))} */}
+              <Typography component="div" variant="h5"  style={{ display: 'flex', justifyContent: 'space-around'}}>
+                <Box>Education</Box>
+                <Box>Work</Box>
+              </Typography>
 
+              <Timeline align="alternate">
                 { showQuali()}
-            </Timeline>
-          </Container>
-        
+              </Timeline>
+            </Container>
+          </section>
+
           {/* Portfolio */}
-          <Container maxWidth="md" className={classes.heroContent}>
-            <Typography component="h6" variant="h6" color="textSecondary"  alignCenter>
-              <Box fontSize="h3.fontSize"  fontWeight="fontWeightBold" textAlign="center">
-                Portfolio
-              </Box>
-              <Box textAlign="center" pb="2rem">
-                Some of my projects
-              </Box>
-            </Typography>
-              
-            <Carousel 
-              navButtonsAlwaysVisible animation="slide" 
-              autoPlay={false} timeout={350}
-              NextIcon={<ExpandMoreIcon color="primary" />}
-              PrevIcon={<ExpandMoreIcon color="primary" />}
-              navButtonsProps={{
-                style: {
-                    backgroundColor: 'transparent',
-                    // borderRadius: 0
-                }
-              }}
-              indicatorIconButtonProps={{
-                style: {
-                  color: myTheme.palette.tertiary.it
-                }
-              }} 
-              activeIndicatorIconButtonProps={{
-                style: {
-                  color: myTheme.palette.secondary.dark
-                }
-              }}
-            >
-              { portfolio.map( portf => (
+          <section id="portfolio">
+            <Container maxWidth="md" className={classes.heroContent}>
+              <Typography component="h6" variant="h6" color="textSecondary"  alignCenter>
+                <Box fontSize="h3.fontSize"  fontWeight="fontWeightBold" textAlign="center">
+                  Portfolio
+                </Box>
+                <Box textAlign="center" pb="2rem">
+                  Some of my projects
+                </Box>
+              </Typography>
+                
+              <Carousel 
+                navButtonsAlwaysVisible animation="slide" 
+                autoPlay={false} timeout={350}
+                NextIcon={<Icon component={ChevronRightRounded} fontSize="large" color="primary"></Icon>}
+                PrevIcon={<Icon component={ChevronLeftRounded} fontSize="large" color="primary"></Icon>}
+                navButtonsProps={{
+                  style: {
+                      backgroundColor: 'transparent',
+                      // borderRadius: 0
+                  }
+                }}
+                indicatorIconButtonProps={{
+                  style: {
+                    color: myTheme.palette.tertiary.it
+                  }
+                }} 
+                activeIndicatorIconButtonProps={{
+                  style: {
+                    color: myTheme.palette.secondary.dark
+                  }
+                }}
+              >
+                { portfolio.map( portf => (
 
-              <Card className={classes.cardRoot}>
-                {/* <CardMedia className={classes.cover} image={foto} title="Live"/> */}
-                <img src={portf.img} className={classes.cover} alt="foto"/>
+                <Card className={classes.cardRoot}>
+                  {/* <CardMedia className={classes.cover} image={foto} title="Live"/> */}
+                  <img src={portf.img} className={classes.cover} alt="foto"/>
 
-                <div className={classes.divContent}>
-                  <CardContent className={classes.content} >
-                    <Typography variant="h4"> {portf.name} </Typography>
-                    <Typography variant="body1"> {portf.desc} </Typography>
-                    <Button variant="contained" color="primary" style={{marginTop: 5}} >Demo</Button>
-                  </CardContent>
-                </div>
-              </Card>
-              ))}
-            </Carousel>
-          </Container>
+                  <div className={classes.divContent}>
+                    <CardContent className={classes.content} >
+                      <Typography variant="h4"> {portf.name} </Typography>
+                      <Typography variant="body1"> {portf.desc} </Typography>
+                      <Button variant="contained" color="primary" style={{marginTop: 5}} >Demo</Button>
+                    </CardContent>
+                  </div>
+                </Card>
+                ))}
+              </Carousel>
+            </Container>
+          </section>
+
           <AppBar position="static" className={classes.footerBar}>
             <Container>
-                <Box py={4}><Button color="inherit">La mama de la mama de la mama</Button></Box>
+                <Box py={4}><Button color="inherit">Keep going, u got this</Button></Box>
             </Container>
         </AppBar>
       </ThemeProvider>
