@@ -9,12 +9,6 @@ import IconButton from '@material-ui/core/IconButton';
 
 import blob from './assets/blob.svg';
 import foto from './assets/photo1.jpeg';
-import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import LinearProgress from '@material-ui/core/LinearProgress';
-import { Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot } from '@material-ui/lab';
-import FastfoodIcon from '@material-ui/icons/Fastfood';
-import LaptopMacIcon from '@material-ui/icons/LaptopMac';
 import Home from '@material-ui/icons/Home';
 import Hello from './components/Hello';
 import AboutMe from './components/AboutMe.js';
@@ -93,7 +87,10 @@ const useStyles = makeStyles((theme) => ({
     height: 38,
     width: 38,
   },
-
+  father: {
+    maxWidth: '100vh !important',
+    overflowX:'hidden !important'
+  }
 }));
 
 
@@ -113,9 +110,9 @@ function App() {
   ];
 
   return (
-    <Fragment>
+    <Fragment className={classes.father}>
       <ThemeProvider theme={myTheme}>
-        <AppBar position="static" >
+        <AppBar position="fixed" style={{backgroundColor:'#6272bdc2'}}>
           <Toolbar>
             <Box flexGrow={1}><Button color="inherit">Karla galvis</Button></Box>
             <Box >
@@ -138,8 +135,7 @@ function App() {
 
           {/* ABOUT ME */}
           <AboutMe />
-        
-          <div className={classes.bg0}></div><div className={classes.bg0+' '+classes.bg1}></div><div className={classes.bg0+' '+classes.bg2}></div>
+      
           {/* Aptitudes */}
           <Aptitudes/>
 

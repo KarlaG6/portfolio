@@ -34,7 +34,7 @@ const AboutMe = () => {
               My Intro
             </Box>
           </Typography>
-          <Grid container spacing={7}>
+          <Grid container spacing={8} >
 
             <Grid item xs={6}>         
               <img src={foto2} width="100%" className={classes.myimg} alt="foto"/>

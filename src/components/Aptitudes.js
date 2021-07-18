@@ -1,6 +1,6 @@
 import '../App.css';
 import myTheme from "../theme";
-import { Grid, Container, Box, Paper, AppBar, Toolbar, Typography, Link } from '@material-ui/core';
+import { Grid, Container, Box, Paper, Typography } from '@material-ui/core';
 import { makeStyles, ThemeProvider, withStyles } from '@material-ui/core/styles';
 import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -8,25 +8,22 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import { Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot } from '@material-ui/lab';
 import FastfoodIcon from '@material-ui/icons/Fastfood';
 import LaptopMacIcon from '@material-ui/icons/LaptopMac';
-import blob from '../assets/blob.svg';
+
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
   heroContent: {
     padding: myTheme.spacing(8, 0, 6),
     height: '100%'
   },
-  myHello: {
-    background: `url(${blob}) no-repeat`,
-    backgroundPositionY: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'flex-start'
-    
+  paper: {
+    padding: '6px 16px',
   },
   bg0: {
     animation: 'mySlide 4s ease-in-out infinite alternate',
-    backgroundImage: `linear-gradient(-60deg, ${myTheme.palette.primary.light} 50%, ${myTheme.palette.secondary.light} 50%)`,
+    backgroundImage: `linear-gradient(-60deg, ${myTheme.palette.primary.light} 50%, ${myTheme.palette.secondary.main} 50%)`,
     // opacity: 1,
     bottom:0,
     left:'-50%',
@@ -59,7 +56,8 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   myMaster: {
-    position: 'relative'
+    position: 'relative',
+    overflowX: 'hidden'
   }
 }));
 
