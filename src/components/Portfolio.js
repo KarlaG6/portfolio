@@ -21,7 +21,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-evenly',
     boxShadow: 'none',
-    backgroundColor: 'transparent !important'
+    backgroundColor: 'transparent !important',
+    padding: myTheme.spacing( 0, 3),
   },
   divContent: {
     alignSelf: 'center',
@@ -33,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '8px',
     boxShadow: '0px 2px 14px -1px rgb(146 148 146), 0px 1px 5px 0px rgb(66 71 107 / 86%), 0px 1px 9px 0px rgb(66 71 107 / 86%)',
     marginTop: '1rem',
-    marginBottom: '1rem'
+    marginBottom: '1rem',
   },
 }));
 

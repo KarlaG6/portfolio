@@ -4,11 +4,13 @@ import { makeStyles, ThemeProvider, withStyles } from '@material-ui/core/styles'
 import foto2 from '../assets/photo2.jpeg';
 
 const useStyles = makeStyles((theme) => ({
+  gran: {
+    backgroundColor: myTheme.palette.primary.light,
+    height: '100vh',
+    padding: '2rem'
+  },
   heroContent: {
     padding: myTheme.spacing(8, 0, 6),
-  },
-  secondaryTail: {
-    backgroundColor: myTheme.palette.primary.light,
   },
   myimg: {
     borderRadius: '8px',
@@ -23,7 +25,7 @@ const AboutMe = () => {
   const classes = useStyles();
   return ( 
     <ThemeProvider theme={myTheme}>
-      <section className={classes.secondaryTail} id="aboutMe">
+      <section className={classes.gran} id="aboutMe">
 
         <Container maxWidth="md" className={classes.heroContent}>
           <Typography component="h6" variant="h6" color="textSecondary"  alignCenter>

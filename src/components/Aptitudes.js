@@ -57,7 +57,8 @@ const useStyles = makeStyles((theme) => ({
   },
   myMaster: {
     position: 'relative',
-    overflowX: 'hidden'
+    overflowX: 'hidden',
+    padding: myTheme.spacing(0, 4),
   }
 }));
 

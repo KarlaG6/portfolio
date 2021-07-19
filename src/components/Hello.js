@@ -2,14 +2,15 @@ import myTheme from "../theme";
 import { makeStyles, ThemeProvider} from '@material-ui/core/styles';
 import stickerk from '../assets/stickerK2.png';
 import blob from '../assets/blob.svg';
-import { Grid, Container, Box,Typography, Button } from '@material-ui/core';
+import { Grid, Box,Typography, Button, Hidden} from '@material-ui/core';
 import Sky from "react-sky";
 
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
     padding: myTheme.spacing( 0, 8),
-    backgroundColor: myTheme.palette.secondary.light,
+    // backgroundColor: myTheme.palette.secondary.light,
+    backgroundColor: '#e6fbfb',
     height: '100vh',
     overflow: 'hidden'
   },
@@ -29,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom:'-7px', /*Fix for safari gap*/
     minHeight:'100px',
     // maxHeight:'150px',
+    height: '24vh'
   }
 
 }));
@@ -49,7 +51,7 @@ const Hello = () => {
 
         /> */}
         <Grid container style={{ margin: 0, height: '-webkit-fill-available'}}>
-          <Grid item xs={6} className={classes.myHello}>         
+          <Grid item xs={12} md={6} className={classes.myHello}>         
             <Typography component="h2" variant="h2" color="textSecondary" alignCenter>
               <Box fontWeight="fontWeightBold" m={2} mx="auto">
               Hola, soy Karla
@@ -63,10 +65,12 @@ const Hello = () => {
             </Typography>
             <Button variant="contained" color="primary" >Contact Me</Button>
           </Grid>
-          <Grid item xs={6} style={{ position: 'relative'}}>
-            {/* <Img1 /> */}
-            <img src={stickerk} style={{ position: 'absolute', bottom: 0, height: '80vh'}} />
-          </Grid>
+          <Hidden smDown>
+            <Grid item xs={6} style={{ position: 'relative'}} >
+              {/* <Img1 /> */}
+              <img src={stickerk} style={{ position: 'absolute', bottom: 0, height: '80vh'}} />
+            </Grid>
+          </Hidden>
         </Grid>
         <div style={{ position: 'absolute', bottom: 0, left: '0%', right: '0%', }}>
           <svg className={classes.waves} xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
