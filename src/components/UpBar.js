@@ -66,6 +66,8 @@ const UpBar = () => {
           anchor: "right",
           open: drawerOpen,
           onClose: handleDrawerClose,
+          backgroundColor: '#6272bdc2',
+          color: 'white',
         }}>
             {navOptions.map(({link, title}) => (
               <Link color="inherit" href={link} style={{textDecoration: 'none'}} key={title}> <MenuItem>{title}</MenuItem></Link>

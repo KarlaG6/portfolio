@@ -8,7 +8,7 @@ import Sky from "react-sky";
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
-    padding: myTheme.spacing( 0, 8),
+    padding: myTheme.spacing( 0, 5),
     // backgroundColor: myTheme.palette.secondary.light,
     backgroundColor: '#e6fbfb',
     height: '100vh',
