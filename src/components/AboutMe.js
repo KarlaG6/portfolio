@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     height: '80%',
     objectPosition: '0% 50%',
     maxHeight: '70vh',
-    [myTheme.breakpoints.up('sm')]: {
+    [myTheme.breakpoints.down('sm')]: {
       filter: 'brightness(0.75)'
     }
   },
@@ -67,7 +67,7 @@ const AboutMe = () => {
                       Me apasiona aprender cosas nuevas en el ámbito de la tecnología, y como esto es una tarea de nunca acabar, he terminado por desarrollar considerablemente mi lado autodidacta, lo cual me llena de confianza para asumir nuevos retos.
                     {/* </Box> */}
                   </Paper>
-                  <Button variant="contained" color="primary" style={{display: 'block', margin: '.5rem auto'}}>Download CV</Button>
+                  <Button variant="contained" color="primary" style={{display: 'block', margin: '1.5rem auto', width: '100%'}}>Download CV</Button>
                 </Hidden> 
               </div>      
             </Grid>

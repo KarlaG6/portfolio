@@ -9,6 +9,11 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  paper: {
+    backgroundColor: '#6272bdc2',
+    color: 'white',
+    padding: '4rem 2rem 3rem'
+  }
 }));
 const UpBar = () => {
   const classes = useStyles();
@@ -66,9 +71,8 @@ const UpBar = () => {
           anchor: "right",
           open: drawerOpen,
           onClose: handleDrawerClose,
-          backgroundColor: '#6272bdc2',
-          color: 'white',
-        }}>
+        }}
+        classes={{paper: classes.paper}}>
             {navOptions.map(({link, title}) => (
               <Link color="inherit" href={link} style={{textDecoration: 'none'}} key={title}> <MenuItem>{title}</MenuItem></Link>
             ))}

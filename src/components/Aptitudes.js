@@ -8,7 +8,8 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import { Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot } from '@material-ui/lab';
 import FastfoodIcon from '@material-ui/icons/Fastfood';
 import LaptopMacIcon from '@material-ui/icons/LaptopMac';
-
+import ScrollAnimation from 'react-animate-on-scroll';
+import "animate.css/animate.min.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -62,6 +63,8 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+
+
 const BorderLinearProgress = withStyles((myTheme) => ({
   root: {
     height: 10,
@@ -101,8 +104,6 @@ const Aptitudes = () => {
     {title: 'Eat', content: 'Because you need strength' , icon: <FastfoodIcon />, color: 'secondary'},
     {title: 'Code', content: 'Because it&apos;s awesome!' , icon: <LaptopMacIcon />, color: 'primary'}
   ];
-
-
 
   const education = [
     { title: 'INGENIERÍA DE SISTEMAS', institution: 'Universidad Libre seccional Barranquilla', date: '2021-2: Séptimo semestre', state: 'en curso', icon: <FastfoodIcon />, color: 'secondary'},
@@ -157,7 +158,7 @@ const Aptitudes = () => {
     }
     return qualiCards
   };
-  
+
 
   return ( 
     <ThemeProvider theme={myTheme}>
@@ -177,43 +178,60 @@ const Aptitudes = () => {
               </Box>
             <Grid container spacing={5}>
             { skills.map(skill => (
-              <Grid item xs={6}>         
-                <Accordion>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon color="primary" />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
+              <Grid item xs={12} sm={6}>   
+                <ScrollAnimation 
+                  animateIn='fadeIn' 
+                  duration='5' 
+                  animateOnce='true' 
+                  afterAnimatedIn={  
+                    function(visible) {
+                      if (visible.inViewport) {
+                        // Part of the element is in the viewport (the area defined by the offset property)
+                      } else if (visible.onScreen) {
+                        // Part of the element is visible on the screen
+                      } else {
+                        // Element is no longer visible
+                      }
+                    }}
                   >
-                    <Typography color="textSecondary">
-                      <Box fontSize="h5.fontSize"  fontWeight="fontWeightBold">
-                        {skill.title}
-                      </Box>
-                    </Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography className={classes.root}>
-                      { skill.content.map( cont => (
-                      <Box mb={1}>
-                        <Grid container>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="body2" color="textSecondary" align="left">
-                              <Box fontWeight="fontWeightBold">
-                                {cont.name}
-                              </Box>
-                            </Typography>
+                  <Accordion >
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon color="primary" />}
+                      aria-controls={skill.title+'-content'}
+                      id={skill.title+'-header'}
+                      
+                    >
+                      <Typography color="textSecondary">
+                        <Box fontSize="h5.fontSize"  fontWeight="fontWeightBold">
+                          {skill.title}
+                        </Box>
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography className={classes.root}>
+                        { skill.content.map( cont => (
+                        <Box mb={1}>
+                          <Grid container>
+                            <Grid item xs={12} sm={6}>
+                              <Typography variant="body2" color="textSecondary" align="left">
+                                <Box fontWeight="fontWeightBold">
+                                  {cont.name}
+                                </Box>
+                              </Typography>
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                              <Typography variant="body2" color="textSecondary" align="right">
+                                {cont.percent}
+                              </Typography>
+                            </Grid>
                           </Grid>
-                          <Grid item xs={12} sm={6}>
-                            <Typography variant="body2" color="textSecondary" align="right">
-                              {cont.percent}
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                        <BorderLinearProgress variant="determinate" value={70} />
-                      </Box>
-                      ))}
-                    </Typography>
-                  </AccordionDetails>
-                </Accordion>
+                          <BorderLinearProgress variant="determinate" value={70} />
+                        </Box>
+                        ))}
+                      </Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                </ScrollAnimation>      
               </Grid>
             ))}
             </Grid>
