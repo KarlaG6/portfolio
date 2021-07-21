@@ -11,6 +11,10 @@ import SkipNextIcon from '@material-ui/icons/SkipNext';
 import Icon from '@material-ui/core/Icon';
 import { ChevronLeftRounded, ChevronRightRounded } from '@material-ui/icons';
 import foto from '../assets/photo1.jpeg';
+import songsSS from '../assets/appsSS/songsAppSS.png';
+import imgsSS from '../assets/appsSS/imagesAppSS.png';
+import weatherSS from '../assets/appsSS/weatherAppSS.png';
+import cotiSS from '../assets/appsSS/cotiAppSS.png';
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -46,10 +50,10 @@ const Portfolio = () => {
   const classes = useStyles();
 
   const portfolio = [
-    { name: 'Songs', desc: 'A single web app with React', img: foto},
-    { name: 'Weather', desc: 'A single web app with React', img: foto},
-    { name: 'Images', desc: 'A single web app with React', img: foto},
-    { name: 'Cocktails', desc: 'A single web app with React', img: foto},
+    { name: 'Songs', desc: 'A single web app with React', img: songsSS, link: 'https://blissful-tesla-da2aee.netlify.app'},
+    { name: 'Images', desc: 'A single web app with React', img: imgsSS, link: 'https://jolly-hamilton-f5243d.netlify.app'},
+    { name: 'Weather', desc: 'A single web app with React', img: weatherSS, link: 'https://youthful-sinoussi-41f946.netlify.app'},
+    { name: 'Cotizador', desc: 'A single web app with React', img: cotiSS, link: 'https://pedantic-agnesi-27f30e.netlify.app'},
   ];
 
   return ( 
@@ -97,7 +101,7 @@ const Portfolio = () => {
               <CardContent className={classes.content} >
                 <Typography variant="h4"> {portf.name} </Typography>
                 <Typography variant="body1"> {portf.desc} </Typography>
-                <Button variant="contained" color="primary" style={{marginTop: 5}} >Demo</Button>
+                <Button variant="contained" color="primary" style={{marginTop: 5}} href={portf.link} target="_blank">Demo</Button>
               </CardContent>
             </div>
           </Card>
