@@ -5,12 +5,14 @@ import foto2 from '../assets/photo2.jpeg';
 import { Hidden } from "@material-ui/core";
 import ScrollAnimation from 'react-animate-on-scroll';
 import "animate.css/animate.min.css";
+import cvSpan from '../assets/docs/cv_dev.pdf';
+import cvEn from '../assets/docs/cv_dev.pdf';
 
 const useStyles = makeStyles((theme) => ({
   gran: {
     backgroundColor: myTheme.palette.primary.light,
     height: '100vh',
-    padding: '2rem',
+    padding: '0 2rem',
     },
   heroContent: {
     padding: myTheme.spacing(4, 0, 3),
@@ -40,6 +42,22 @@ const useStyles = makeStyles((theme) => ({
       color: 'white'
     }
   },
+  downloadBtns: {
+    display: 'flex', 
+    justifyContent: 'space-between', 
+    paddingTop: '.5rem',
+    "& a": {
+      width: '48%', 
+    },
+    [myTheme.breakpoints.down('xs')]: {
+      flexDirection: 'column',
+      '& a': {
+        width: '100%',
+        paddingTop: 0,
+        marginTop: '1rem',
+      },
+    },
+  },
   }));
 
 const AboutMe = () => {
@@ -60,7 +78,7 @@ const AboutMe = () => {
 
           <Grid container spacing={8} >
 
-            <Grid item xs={12} md={6}>   
+            <Grid item xs={12} md={6} style={{margin: '0 auto'}}>   
               <div style={{position: 'relative'}}>
                 <img src={foto2} width="100%" className={classes.myimg} alt="foto"/>
                 <Hidden mdUp>
@@ -69,15 +87,20 @@ const AboutMe = () => {
                       Me apasiona aprender cosas nuevas en el ámbito de la tecnología, y como esto es una tarea de nunca acabar, he terminado por desarrollar considerablemente mi lado autodidacta, lo cual me llena de confianza para asumir nuevos retos.
                     {/* </Box> */}
                   </Paper>
-                  <Button variant="contained" color="primary" style={{display: 'block', margin: '1.5rem auto', width: '100%'}}>Download CV</Button>
+                  <div className={classes.downloadBtns}>
+                    <Button variant="contained" color="primary" 
+                      href={process.env.PUBLIC_URL + cvSpan} download="cv_karla_galvis_span.pdf">Descargar CV español</Button>
+                    <Button variant="contained" color="primary"  
+                      href={process.env.PUBLIC_URL + cvEn} download="cv_karla_galvis_en.pdf">Download english CV</Button>
+                  </div>
                 </Hidden> 
               </div>      
             </Grid>
             <Hidden smDown>  
-              <Grid item xs={12} md={6}>
+              <Grid item md={6}>
                 <Typography component="h2" variant="h2">
 
-                  <Box fontSize={19} color="primary.contrastText" fontWeight="400" pb={1} mx="auto">
+                  <Box fontSize={23} color="primary.contrastText" fontWeight="400" pb={1} mx="auto">
                     Me apasiona aprender cosas nuevas en el ámbito de la tecnología, y como esto es una tarea de nunca acabar, he terminado por desarrollar considerablemente mi lado autodidacta, lo cual me llena de confianza para asumir nuevos retos.
                   </Box>
                 </Typography>
@@ -101,7 +124,13 @@ const AboutMe = () => {
                       </Grid>
                     </Grid>
                 </Box>
-                <Button variant="contained" color="primary" style={{marginTop: 10}} >Download CV</Button>
+                <div className={classes.downloadBtns}>
+                  <Button variant="contained" color="primary" 
+                    href={process.env.PUBLIC_URL + cvSpan} download="cv_karla_galvis_span.pdf">Descargar CV español</Button>
+                  <Button variant="contained" color="primary"  
+                    href={process.env.PUBLIC_URL + cvEn} download="cv_karla_galvis_en.pdf">Download english CV</Button>
+                </div>
+                
               {/* <ScrollAnimation animateIn='wobble'
                 initiallyVisible={true}>
                 <h1>
