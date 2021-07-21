@@ -31,8 +31,17 @@ const useStyles = makeStyles((theme) => ({
     minHeight:'100px',
     // maxHeight:'150px',
     height: '24vh'
+  },
+  myIntro: {
+    "@media (max-width: 488px)":{
+      "@media (max-height: 610px)":{
+        fontSize: 'smaller'
+      }
+    }
+  },
+  myBtn: {
+    zIndex: "1",
   }
-
 }));
 
 const Hello = () => {
@@ -52,8 +61,8 @@ const Hello = () => {
         /> */}
         <Grid container style={{ margin: 0, height: '-webkit-fill-available'}}>
           <Grid item xs={12} md={6} className={classes.myHello}>         
-            <Typography component="h2" variant="h2" color="textSecondary" alignCenter>
-              <Box fontWeight="fontWeightBold" m={2} mx="auto">
+            <Typography component="h2" variant="h2" color="textSecondary">
+              <Box fontWeight="fontWeightBold" m={2} mx="auto" className={classes.myIntro}>
               Hola, soy Karla
               </Box>
               <Box fontSize="h5.fontSize" color="textSecondary" fontWeight="fontWeightMedium" >
@@ -63,7 +72,7 @@ const Hello = () => {
                 Una estudiante de ingeniería de sistemas con aspiración de crecer en el ámbito laboral como desarrolladora de software
               </Box>
             </Typography>
-            <Button variant="contained" color="primary" >Contact Me</Button>
+            <Button variant="contained" color="primary" className={classes.myBtn}>Contact Me</Button>
           </Grid>
           <Hidden smDown>
             <Grid item xs={6} style={{ position: 'relative'}} >
@@ -74,7 +83,7 @@ const Hello = () => {
         </Grid>
         <div style={{ position: 'absolute', bottom: 0, left: '0%', right: '0%', }}>
           <svg className={classes.waves} xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
-                viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
             <defs>
               <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
             </defs>

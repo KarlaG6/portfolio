@@ -35,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: '0px 2px 14px -1px rgb(146 148 146), 0px 1px 5px 0px rgb(66 71 107 / 86%), 0px 1px 9px 0px rgb(66 71 107 / 86%)',
     marginTop: '1rem',
     marginBottom: '1rem',
+    "@media (max-width: 406px)": {
+      margin: 'auto'
+    }
   },
 }));
 
@@ -53,7 +56,7 @@ const Portfolio = () => {
     <ThemeProvider theme={myTheme}>
     <section id="portfolio">
       <Container maxWidth="md" className={classes.heroContent}>
-        <Typography component="h6" variant="h6" color="textSecondary"  alignCenter>
+        <Typography component="h6" variant="h6" color="textSecondary">
           <Box fontSize="h3.fontSize" fontWeight="fontWeightBold" textAlign="center">
             Portfolio
           </Box>
@@ -86,7 +89,7 @@ const Portfolio = () => {
         >
           { portfolio.map( portf => (
 
-          <Card className={classes.cardRoot}>
+          <Card className={classes.cardRoot} key={portf.name}>
             {/* <CardMedia className={classes.cover} image={foto} title="Live"/> */}
             <img src={portf.img} className={classes.cover} alt="foto"/>
 

@@ -27,10 +27,6 @@ const useStyles = makeStyles((theme) => ({
     top: 'auto',
     bottom: 0,
   },
-  father: {
-    maxWidth: '100vh !important',
-    overflowX:'hidden !important'
-  }
 }));
 
 function App() {
@@ -39,7 +35,7 @@ function App() {
   // const preventDefault = (event) => event.preventDefault();
 
   return (
-    <Fragment className={classes.father}>
+    <Fragment>
       <ThemeProvider theme={myTheme}>
         <UpBar />
 

@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   paper: {
-    backgroundColor: '#6272bdc2',
+    backgroundColor: myTheme.palette.primary.main,
     color: 'white',
     padding: '4rem 2rem 3rem'
   }
@@ -56,7 +56,7 @@ const UpBar = () => {
 
     return (
       <Toolbar>
-        <Box flexGrow={1}><Button color="inherit">Karla galvis</Button></Box>
+        <Box flexGrow={1}><Button color="inherit">Karla_galvis.dev</Button></Box>
         <Box >
           <IconButton {...{
             edge: "start",
@@ -84,12 +84,12 @@ const UpBar = () => {
   const displayDesktop = () => {
     return (
       <Toolbar>
-        <Box flexGrow={1}><Button color="inherit">Karla galvis</Button></Box>
+        <Box flexGrow={1}><Button color="inherit">Karla_galvis.dev</Button></Box>
         <Box >
           <Typography variant="h6" className={classes.title} color="inherit">
             <Grid container spacing={3}>
               {navOptions.map(option => (
-                <Grid item>
+                <Grid item key={option.title}>
                   <Link color="inherit" href={option.link}> {option.title} </Link>
                 </Grid>
               ))}

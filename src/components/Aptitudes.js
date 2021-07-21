@@ -19,6 +19,14 @@ const useStyles = makeStyles((theme) => ({
     padding: myTheme.spacing(8, 0, 6),
     height: '100%'
   },
+  contentQua: {
+    [myTheme.breakpoints.down('xs')]: {
+      display: 'flex',
+      flexDirection: 'column',
+      flexWrap: 'wrap',
+      alignContent: 'center'
+    }
+  },
   paper: {
     padding: '6px 16px',
   },
@@ -83,19 +91,24 @@ const Aptitudes = () => {
   const skills = [
     { title: 'Frontend Developer', 
       content: [
-        {name: 'HTML', percent: '70%'},
-        {name: 'CSS', percent: '70%'},
-        {name: 'JavaScript', percent: '60%'},
-        {name: 'React', percent: '70%'},
-        {name: 'Vue', percent: '70%'},
-        {name: 'Bootstrap', percent: '70%'},
+        {name: 'HTML', percent: 80},
+        {name: 'CSS', percent: 80},
+        {name: 'JavaScript', percent: 70},
+        {name: 'jQuery', percent: 42},
+        {name: 'Bootstrap', percent: 95},
+        {name: 'React', percent: 78},
+        {name: 'Material-UI', percent: 70},
+        {name: 'Vue', percent: 56},
+        {name: 'Vuetify', percent: 50},
       ]
     },
     { title: 'Backend Developer', 
       content: [
-        {name: 'Flask', percent: '30%'},
-        {name: 'PHP', percent: '30%'},
-        {name: 'Django', percent: '20%'},
+        {name: 'MySQL', percent: 75},
+        {name: 'SQLite', percent: 67},
+        {name: 'Flask', percent: 70},
+        {name: 'PHP', percent: 30},
+        {name: 'Django', percent: 20},
       ]
     }
   ];
@@ -106,7 +119,7 @@ const Aptitudes = () => {
   ];
 
   const education = [
-    { title: 'INGENIERÍA DE SISTEMAS', institution: 'Universidad Libre seccional Barranquilla', date: '2021-2: Séptimo semestre', state: 'en curso', icon: <FastfoodIcon />, color: 'secondary'},
+    { title: 'INGENIERÍA DE SISTEMAS', institution: 'Universidad Libre seccional Barranquilla', date: '2021-2: Séptimo semestre', state: 'En curso', icon: <FastfoodIcon />, color: 'secondary'},
     { title: 'BACHILLER CON PROFUNDIZACIÓN EN PEDAGOGÍA', institution: 'Escuela Normal Superior del Distrito de Barranquilla', date: '2017', state: 'Finalizado', icon: <LaptopMacIcon />, color: 'primary'}
   ];
 
@@ -120,7 +133,7 @@ const Aptitudes = () => {
     for (let i=0; i < work.length; i++) {
         // work
         qualiCards.push(
-        <TimelineItem>
+        <TimelineItem key={i}>
           <TimelineSeparator>
             <TimelineDot color={work[i].color}>
             {work[i].icon}
@@ -133,13 +146,14 @@ const Aptitudes = () => {
                 {work[i].project}
               </Typography>
               <Typography>{work[i].charge}</Typography>
+              <Typography component="span" variant="caption">{work[i].date}</Typography>
             </Paper>
           </TimelineContent>
         </TimelineItem>);
 
         // Ed
         qualiCards.push(
-        <TimelineItem>
+        <TimelineItem key={education[i].title}>
           <TimelineSeparator>
             <TimelineDot color={education[i].color}>
             {education[i].icon}
@@ -152,6 +166,7 @@ const Aptitudes = () => {
                 {education[i].title}
               </Typography>
               <Typography>{education[i].institution}</Typography>
+              <Typography component="span" variant="caption">{education[i].date}</Typography>
             </Paper>
           </TimelineContent>
         </TimelineItem>);
@@ -168,9 +183,9 @@ const Aptitudes = () => {
 
         {/* SKILLS */}
         <section id="skills" className={classes.myContent}>
-          <Container maxWidth="md" className={classes.heroContent}>
-            <Typography component="h6" variant="h6" color="textSecondary"  alignCenter>
-              <Box fontSize="h3.fontSize"  fontWeight="fontWeightBold" textAlign="center">
+          <Container maxWidth="md" className={classes.heroContentQ}>
+            <Typography component="h6" variant="h6" color="textSecondary">
+              <Box fontSize="h3.fontSize"  fontWeight="fontWeightBold" textAlign="center" pt={8}>
                 Skills
               </Box>
               <Box textAlign="center" pb="1rem">
@@ -178,15 +193,16 @@ const Aptitudes = () => {
               </Box>
             <Grid container spacing={5}>
             { skills.map(skill => (
-              <Grid item xs={12} sm={6}>   
+              <Grid item xs={12} sm={6} key={skill.title}>   
                 <ScrollAnimation 
                   animateIn='fadeIn' 
-                  duration='5' 
-                  animateOnce='true' 
+                  duration={5} 
+                  animateOnce={true}
                   afterAnimatedIn={  
                     function(visible) {
                       if (visible.inViewport) {
                         // Part of the element is in the viewport (the area defined by the offset property)
+                        // console.log('aja view')
                       } else if (visible.onScreen) {
                         // Part of the element is visible on the screen
                       } else {
@@ -210,7 +226,7 @@ const Aptitudes = () => {
                     <AccordionDetails>
                       <Typography className={classes.root}>
                         { skill.content.map( cont => (
-                        <Box mb={1}>
+                        <Box mb={1} key={cont.name}>
                           <Grid container>
                             <Grid item xs={12} sm={6}>
                               <Typography variant="body2" color="textSecondary" align="left">
@@ -221,11 +237,11 @@ const Aptitudes = () => {
                             </Grid>
                             <Grid item xs={12} sm={6}>
                               <Typography variant="body2" color="textSecondary" align="right">
-                                {cont.percent}
+                                {`${cont.percent}%`}
                               </Typography>
                             </Grid>
                           </Grid>
-                          <BorderLinearProgress variant="determinate" value={70} />
+                          <BorderLinearProgress variant="determinate" value={cont.percent} />
                         </Box>
                         ))}
                       </Typography>
@@ -241,9 +257,9 @@ const Aptitudes = () => {
 
         {/* Qualification */}
         <section id="qualification">
-          <Container maxWidth="md" className={classes.heroContent}>
-            <Typography component="h6" variant="h6" color="textSecondary"  alignCenter>
-              <Box fontSize="h3.fontSize"  fontWeight="fontWeightBold" textAlign="center">
+          <Container maxWidth="md" className={classes.heroContentQua+' '+classes.contentQua}>
+            <Typography component="h6" variant="h6" color="textSecondary">
+              <Box fontSize="h3.fontSize"  fontWeight="fontWeightBold" textAlign="center" style={{display: 'flex', justifyContent: 'center'}} pt={5}>
                 Qualification
               </Box>
               <Box textAlign="center" pb="1rem">
