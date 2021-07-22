@@ -13,9 +13,13 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: myTheme.palette.primary.light,
     height: '100vh',
     padding: '0 2rem',
-    },
+    display: 'flex',
+  },
   heroContent: {
     padding: myTheme.spacing(4, 0, 3),
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center'
   },
   myimg: {
     borderRadius: '8px',

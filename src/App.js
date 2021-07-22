@@ -15,6 +15,9 @@ import AboutMe from './components/AboutMe.js';
 import Portfolio from './components/Portfolio.js';
 import Aptitudes from './components/Aptitudes.js';
 import UpBar from './components/UpBar.js';
+import { GitHub, LinkedIn, Code } from '@material-ui/icons';
+import { SvgIcon } from '@material-ui/core';
+import { ReactComponent as SkypeIcon} from './assets/icons/logotipo-de-skype.svg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,7 +29,12 @@ const useStyles = makeStyles((theme) => ({
   footerBar: {
     top: 'auto',
     bottom: 0,
+    padding: myTheme.spacing(2, 6),
   },
+  footNets: {
+    display: 'flex', 
+    alignItems: 'center',
+  }
 }));
 
 function App() {
@@ -52,9 +60,25 @@ function App() {
           <Portfolio />
 
           <AppBar position="static" className={classes.footerBar}>
-            <Container>
-                <Box py={4}><Button color="inherit">Keep going, u got this</Button></Box>
-            </Container>
+            <Grid container>
+              <Grid item md={6}>
+                <Container>
+                  <h2>Follow me or just send me a message on :</h2>
+                    <Box className={classes.footNets}><Button color="inherit" href="https://www.linkedin.com/in/karla-g-505045138/"><LinkedIn /> linkedin: karla-g-505045138 </Button></Box>
+                    <Box className={classes.footNets}><Button color="inherit" href="https://github.com/KarlaG6"><GitHub /> Github: @KarlaG6</Button></Box>
+                    <Box className={classes.footNets}><Button color="inherit"><SvgIcon component={SkypeIcon} color="white" viewBox="0 0 600 476.6"/>skype: karlita.galvis</Button></Box>
+                    {/* <Box className={classes.footNets}><Button color="inherit">Keep going, u got this</Button></Box> */}
+                    <div style={{color: "#ffffff57", fontStyle: "italic"}}>Icono de skype diseñado por <a href="https://www.flaticon.es/autores/dave-gandy" style={{color: "#ffffff57"}} title="Dave Gandy">Dave Gandy</a> from <a href="https://www.flaticon.es/" title="Flaticon" style={{color: "#ffffff57"}}>www.flaticon.es</a></div>
+                </Container>
+              </Grid>
+              <Grid item md={6} style={{alignSelf: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center',borderRadius: '8px',
+                      boxShadow: 'rgb(98 114 189) 0px 2px 14px -1px, rgb(66 71 107 / 86%) 0px 1px 5px 0px, rgb(66 71 107 / 86%) 0px 1px 9px 0px', padding: '2rem'}}>
+                <Code />
+                <Container>
+                  <h1 style={{textAlign: 'center'}}>Code for life</h1>
+                </Container>
+              </Grid>
+            </Grid>
         </AppBar>
       </ThemeProvider>
     </Fragment>

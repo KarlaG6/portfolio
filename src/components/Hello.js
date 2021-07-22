@@ -3,8 +3,7 @@ import { makeStyles, ThemeProvider} from '@material-ui/core/styles';
 import stickerk from '../assets/stickerK2.png';
 import blob from '../assets/blob.svg';
 import { Grid, Box,Typography, Button, Hidden} from '@material-ui/core';
-import Sky from "react-sky";
-
+// import Sky from "react-sky";
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -57,7 +56,6 @@ const Hello = () => {
           how={130}
           time={40}
           size={'100px'}
-
         /> */}
         <Grid container style={{ margin: 0, height: '-webkit-fill-available'}}>
           <Grid item xs={12} md={6} className={classes.myHello}>         
@@ -72,7 +70,7 @@ const Hello = () => {
                 Una estudiante de ingeniería de sistemas con aspiración de crecer en el ámbito laboral como desarrolladora de software
               </Box>
             </Typography>
-            <Button variant="contained" color="primary" className={classes.myBtn}>Contact Me</Button>
+            <Button variant="contained" color="primary" className={classes.myBtn} href="mailto:karlaisabelgt@gmail.com">Contact Me</Button>
           </Grid>
           <Hidden smDown>
             <Grid item xs={6} style={{ position: 'relative'}} >

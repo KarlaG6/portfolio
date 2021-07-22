@@ -24,7 +24,7 @@ const UpBar = () => {
     {title: 'Skills', link: '#skills'},
     {title: 'Services', link: '#services'},
     {title: 'Portfolio', link: '#portfolio'},
-    {title: 'Contact me', link: '#contactMe'}
+    {title: 'Contact me', link: 'mailto:karlaisabelgt@gmail.com'}
   ];
 
   const [state, setState] = useState({ 
