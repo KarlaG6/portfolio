@@ -93,9 +93,9 @@ const AboutMe = () => {
                   </Paper>
                   <div className={classes.downloadBtns}>
                     <Button variant="contained" color="primary" 
-                      href={process.env.PUBLIC_URL + cvSpan} download="cv_karla_galvis_span.pdf">Descargar CV español</Button>
+                      href="https://github.com/KarlaG6/portfolio/raw/main/src/assets/docs/cv_dev.pdf" download="cv_karla_galvis_span.pdf">Descargar CV español</Button>
                     <Button variant="contained" color="primary"  
-                      href={process.env.PUBLIC_URL + cvEn} download="cv_karla_galvis_en.pdf">Download english CV</Button>
+                      href="https://github.com/KarlaG6/portfolio/raw/main/src/assets/docs/cv_dev_en.pdf" download="cv_karla_galvis_en.pdf">Download english CV</Button>
                   </div>
                 </Hidden> 
               </div>      
@@ -130,9 +130,9 @@ const AboutMe = () => {
                 </Box>
                 <div className={classes.downloadBtns}>
                   <Button variant="contained" color="primary" 
-                    href={process.env.PUBLIC_URL + cvSpan} download="cv_karla_galvis_span.pdf">Descargar CV español</Button>
+                    href="https://github.com/KarlaG6/portfolio/raw/main/src/assets/docs/cv_dev.pdf" download="cv_karla_galvis_span.pdf">Descargar CV español</Button>
                   <Button variant="contained" color="primary"  
-                    href={process.env.PUBLIC_URL + cvEn} download="cv_karla_galvis_en.pdf">Download english CV</Button>
+                    href="https://github.com/KarlaG6/portfolio/raw/main/src/assets/docs/cv_dev_en.pdf" download="cv_karla_galvis_en.pdf">Download english CV</Button>
                 </div>
                 
               {/* <ScrollAnimation animateIn='wobble'

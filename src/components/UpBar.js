@@ -22,7 +22,6 @@ const UpBar = () => {
     {title: 'Home', link: '#'},
     {title: 'About', link: '#aboutMe'},
     {title: 'Skills', link: '#skills'},
-    {title: 'Services', link: '#services'},
     {title: 'Portfolio', link: '#portfolio'},
     {title: 'Contact me', link: 'mailto:karlaisabelgt@gmail.com'}
   ];
