@@ -6,7 +6,7 @@ import { Hidden } from "@material-ui/core";
 import ScrollAnimation from 'react-animate-on-scroll';
 import "animate.css/animate.min.css";
 import cvSpan from '../assets/docs/cv_dev.pdf';
-import cvEn from '../assets/docs/cv_dev.pdf';
+import cvEn from '../assets/docs/cv_dev_en.pdf';
 
 const useStyles = makeStyles((theme) => ({
   gran: {

@@ -27,21 +27,30 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: 'none',
     backgroundColor: 'transparent !important',
     padding: myTheme.spacing( 0, 3),
+    [myTheme.breakpoints.down('sm')]: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      "& div": {
+        textAlign: 'center'
+      }
+    }
   },
   divContent: {
     alignSelf: 'center',
     marginLeft: '1rem',
+
   },
   cover: {
     width: '40%',
-    height: 'fit-content',
+    height: 'auto',
     borderRadius: '8px',
     boxShadow: '0px 2px 14px -1px rgb(146 148 146), 0px 1px 5px 0px rgb(66 71 107 / 86%), 0px 1px 9px 0px rgb(66 71 107 / 86%)',
     marginTop: '1rem',
     marginBottom: '1rem',
     "@media (max-width: 406px)": {
       margin: 'auto'
-    }
+    },
   },
 }));
 
