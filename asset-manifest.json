@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/basic-portfolio/static/css/main.742a25b3.chunk.css",
+    "main.js": "/basic-portfolio/static/js/main.0082e7fa.chunk.js",
+    "main.js.map": "/basic-portfolio/static/js/main.0082e7fa.chunk.js.map",
+    "runtime-main.js": "/basic-portfolio/static/js/runtime-main.c6841e1f.js",
+    "runtime-main.js.map": "/basic-portfolio/static/js/runtime-main.c6841e1f.js.map",
+    "static/css/2.cc77c331.chunk.css": "/basic-portfolio/static/css/2.cc77c331.chunk.css",
+    "static/js/2.d18dc388.chunk.js": "/basic-portfolio/static/js/2.d18dc388.chunk.js",
+    "static/js/2.d18dc388.chunk.js.map": "/basic-portfolio/static/js/2.d18dc388.chunk.js.map",
+    "static/js/3.4934f766.chunk.js": "/basic-portfolio/static/js/3.4934f766.chunk.js",
+    "static/js/3.4934f766.chunk.js.map": "/basic-portfolio/static/js/3.4934f766.chunk.js.map",
+    "index.html": "/basic-portfolio/index.html",
+    "static/css/2.cc77c331.chunk.css.map": "/basic-portfolio/static/css/2.cc77c331.chunk.css.map",
+    "static/css/main.742a25b3.chunk.css.map": "/basic-portfolio/static/css/main.742a25b3.chunk.css.map",
+    "static/js/2.d18dc388.chunk.js.LICENSE.txt": "/basic-portfolio/static/js/2.d18dc388.chunk.js.LICENSE.txt",
+    "static/media/blob.302d8968.svg": "/basic-portfolio/static/media/blob.302d8968.svg",
+    "static/media/cotiAppSS.69ac42b9.png": "/basic-portfolio/static/media/cotiAppSS.69ac42b9.png",
+    "static/media/cv_dev.04ec5731.pdf": "/basic-portfolio/static/media/cv_dev.04ec5731.pdf",
+    "static/media/cv_dev_en.2ee6fbf7.pdf": "/basic-portfolio/static/media/cv_dev_en.2ee6fbf7.pdf",
+    "static/media/imagesAppSS.679ce873.png": "/basic-portfolio/static/media/imagesAppSS.679ce873.png",
+    "static/media/logotipo-de-skype.036b4a9a.svg": "/basic-portfolio/static/media/logotipo-de-skype.036b4a9a.svg",
+    "static/media/photo1.54cf5dd8.jpeg": "/basic-portfolio/static/media/photo1.54cf5dd8.jpeg",
+    "static/media/photo2.ef6c6013.jpeg": "/basic-portfolio/static/media/photo2.ef6c6013.jpeg",
+    "static/media/songsAppSS.5965df42.png": "/basic-portfolio/static/media/songsAppSS.5965df42.png",
+    "static/media/stickerK2.5b2ce106.png": "/basic-portfolio/static/media/stickerK2.5b2ce106.png",
+    "static/media/weatherAppSS.7581cf2a.png": "/basic-portfolio/static/media/weatherAppSS.7581cf2a.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c6841e1f.js",
+    "static/css/2.cc77c331.chunk.css",
+    "static/js/2.d18dc388.chunk.js",
+    "static/css/main.742a25b3.chunk.css",
+    "static/js/main.0082e7fa.chunk.js"
+  ]
+}
