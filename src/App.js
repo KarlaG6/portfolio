@@ -71,47 +71,45 @@ function App() {
   // const preventDefault = (event) => event.preventDefault();
 
   return (
-    <Switch>
-      <Route exact path="/">
-        <Fragment>
-          <ThemeProvider theme={myTheme}>
-              <UpBar />
-              {/* HELLO */}
-                <Hello />
 
-              {/* ABOUT ME */}
-              <AboutMe />
-          
-              {/* Aptitudes */}
-              <Aptitudes/>
+      <Fragment>
+        <ThemeProvider theme={myTheme}>
+            <UpBar />
+            {/* HELLO */}
+              <Hello />
 
-              {/* Portfolio */}
-              <Portfolio />
+            {/* ABOUT ME */}
+            <AboutMe />
+        
+            {/* Aptitudes */}
+            <Aptitudes/>
 
-              <AppBar position="static" className={classes.footerBar}>
-                <Grid container className={classes.footer}>
-                  <Grid item md={6} >
-                    <Container className={classes.footCont}>
-                      <h2>Follow me or just send me a message on :</h2>
-                        <Box className={classes.footNets}><Button color="inherit" href="https://www.linkedin.com/in/karla-g-505045138/"><LinkedIn /> linkedin: karla-g-505045138 </Button></Box>
-                        <Box className={classes.footNets}><Button color="inherit" href="https://github.com/KarlaG6"><GitHub />  Github: @KarlaG6</Button></Box>
-                        <Box className={classes.footNets}><Button color="inherit"><SvgIcon component={SkypeIcon} viewBox="0 0 600 476.6"/>skype: karlita.galvis</Button></Box>
-                        {/* <Box className={classes.footNets}><Button color="inherit">Keep going, u got this</Button></Box> */}
-                        <div style={{color: "#ffffff57", fontStyle: "italic"}}>Icono de skype diseñado por <a href="https://www.flaticon.es/autores/dave-gandy" style={{color: "#ffffff57"}} title="Dave Gandy">Dave Gandy</a> from <a href="https://www.flaticon.es/" title="Flaticon" style={{color: "#ffffff57"}}>www.flaticon.es</a></div>
-                    </Container>
-                  </Grid>
-                  <Grid item md={6} className={classes.codeCont}>
-                    <Code />
-                    <Container>
-                      <h1 style={{textAlign: 'center'}}>Code for life</h1>
-                    </Container>
-                  </Grid>
+            {/* Portfolio */}
+            <Portfolio />
+
+            <AppBar position="static" className={classes.footerBar}>
+              <Grid container className={classes.footer}>
+                <Grid item md={6} >
+                  <Container className={classes.footCont}>
+                    <h2>Follow me or just send me a message on :</h2>
+                      <Box className={classes.footNets}><Button color="inherit" href="https://www.linkedin.com/in/karla-g-505045138/"><LinkedIn /> linkedin: karla-g-505045138 </Button></Box>
+                      <Box className={classes.footNets}><Button color="inherit" href="https://github.com/KarlaG6"><GitHub />  Github: @KarlaG6</Button></Box>
+                      <Box className={classes.footNets}><Button color="inherit"><SvgIcon component={SkypeIcon} viewBox="0 0 600 476.6"/>skype: karlita.galvis</Button></Box>
+                      {/* <Box className={classes.footNets}><Button color="inherit">Keep going, u got this</Button></Box> */}
+                      <div style={{color: "#ffffff57", fontStyle: "italic"}}>Icono de skype diseñado por <a href="https://www.flaticon.es/autores/dave-gandy" style={{color: "#ffffff57"}} title="Dave Gandy">Dave Gandy</a> from <a href="https://www.flaticon.es/" title="Flaticon" style={{color: "#ffffff57"}}>www.flaticon.es</a></div>
+                  </Container>
                 </Grid>
-            </AppBar>
-          </ThemeProvider>
-        </Fragment>
-      </Route>
-    </Switch>
+                <Grid item md={6} className={classes.codeCont}>
+                  <Code />
+                  <Container>
+                    <h1 style={{textAlign: 'center'}}>Code for life</h1>
+                  </Container>
+                </Grid>
+              </Grid>
+          </AppBar>
+        </ThemeProvider>
+      </Fragment>
+
   );
 }
 
