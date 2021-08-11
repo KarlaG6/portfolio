@@ -19,6 +19,7 @@ import { GitHub, LinkedIn, Code } from '@material-ui/icons';
 import { SvgIcon } from '@material-ui/core';
 import { ReactComponent as SkypeIcon} from './assets/icons/logotipo-de-skype.svg';
 import { Route, Switch } from 'react-router-dom';
+import "animate.css/animate.min.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -62,6 +63,13 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: 'column',
       alignItems: 'center'
     }
+  },
+  atriIcon: {
+    color: "#ffffff57", 
+    fontStyle: "italic",
+    [myTheme.breakpoints.down('sm')]: {
+      textAlign: 'center'
+    }
   }
 }));
 
@@ -93,10 +101,10 @@ function App() {
                   <Container className={classes.footCont}>
                     <h2>Follow me or just send me a message on :</h2>
                       <Box className={classes.footNets}><Button color="inherit" href="https://www.linkedin.com/in/karla-g-505045138/"><LinkedIn /> linkedin: karla-g-505045138 </Button></Box>
-                      <Box className={classes.footNets}><Button color="inherit" href="https://github.com/KarlaG6"><GitHub />  Github: @KarlaG6</Button></Box>
+                      <Box className={classes.footNets}><Button color="inherit" href="https://github.com/KarlaG6"><GitHub style={{marginRight: '3px'}} />  Github: @KarlaG6</Button></Box>
                       <Box className={classes.footNets}><Button color="inherit"><SvgIcon component={SkypeIcon} viewBox="0 0 600 476.6"/>skype: karlita.galvis</Button></Box>
                       {/* <Box className={classes.footNets}><Button color="inherit">Keep going, u got this</Button></Box> */}
-                      <div style={{color: "#ffffff57", fontStyle: "italic"}}>Icono de skype diseñado por <a href="https://www.flaticon.es/autores/dave-gandy" style={{color: "#ffffff57"}} title="Dave Gandy">Dave Gandy</a> from <a href="https://www.flaticon.es/" title="Flaticon" style={{color: "#ffffff57"}}>www.flaticon.es</a></div>
+                      <div className={classes.atriIcon}>Icono de skype diseñado por <a href="https://www.flaticon.es/autores/dave-gandy" style={{color: "#ffffff57"}} title="Dave Gandy">Dave Gandy</a> from <a href="https://www.flaticon.es/" title="Flaticon" style={{color: "#ffffff57"}}>www.flaticon.es</a></div>
                   </Container>
                 </Grid>
                 <Grid item md={6} className={classes.codeCont}>

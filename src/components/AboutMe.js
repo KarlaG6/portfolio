@@ -57,7 +57,6 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: 'column',
       '& a': {
         width: '100%',
-        paddingTop: 0,
         marginTop: '1rem',
       },
     },
@@ -111,12 +110,12 @@ const AboutMe = () => {
                 <Box py={1} color="primary.contrastText" fontWeight="bold" fontSize={52}>
                     <Grid container spacing={3} style={{textAlignLast: 'center'}}>
                       <Grid item xs={12} sm={4} >
-                      <ScrollAnimation animateIn='wobble'
+                      {/* <ScrollAnimation animateIn='wobble'
                         initiallyVisible={true}
-                        >
+                        > */}
                         <span>0+</span>
                         <Box fontSize={7}>Años de experiencia</Box>
-                      </ScrollAnimation>
+                      {/* </ScrollAnimation> */}
                       </Grid>
                       <Grid item xs={12} sm={4}>
                         10/10

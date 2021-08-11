@@ -58,7 +58,7 @@ const Hello = () => {
           size={'100px'}
         /> */}
         <Grid container style={{ margin: 0, height: '-webkit-fill-available'}}>
-          <Grid item xs={12} md={6} className={classes.myHello}>         
+          <Grid item md={12} lg={6} className={classes.myHello}>         
             <Typography component="h2" variant="h2" color="textSecondary">
               <Box fontWeight="fontWeightBold" m={2} mx="auto" className={classes.myIntro}>
               Hola, soy Karla
@@ -72,7 +72,7 @@ const Hello = () => {
             </Typography>
             <Button variant="contained" color="primary" className={classes.myBtn} href="mailto:karlaisabelgt@gmail.com">Contact Me</Button>
           </Grid>
-          <Hidden smDown>
+          <Hidden mdDown>
             <Grid item xs={6} style={{ position: 'relative'}} >
               {/* <Img1 /> */}
               <img src={stickerk} style={{ position: 'absolute', bottom: 0, height: '80vh'}} />

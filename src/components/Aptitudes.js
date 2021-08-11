@@ -1,16 +1,18 @@
 import '../App.css';
 import myTheme from "../theme";
-import { Grid, Container, Box, Paper, Typography } from '@material-ui/core';
+import { Grid, Container, Box, Paper, Typography, Avatar, SvgIcon } from '@material-ui/core';
 import { makeStyles, ThemeProvider, withStyles } from '@material-ui/core/styles';
-import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+// import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
+// import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot } from '@material-ui/lab';
-import FastfoodIcon from '@material-ui/icons/Fastfood';
+import AssignmentIcon from '@material-ui/icons/Assignment';
 import LaptopMacIcon from '@material-ui/icons/LaptopMac';
 import ScrollAnimation from 'react-animate-on-scroll';
+import {ReactComponent as CssIcon} from '../assets/icons/css-3.svg';
+import {ReactComponent as HtmlIcon} from '../assets/icons/html5.svg';
+import {ReactComponent as JsIcon} from '../assets/icons/js.svg';
 import "animate.css/animate.min.css";
-
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -68,6 +70,13 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     overflowX: 'hidden',
     padding: myTheme.spacing(0, 4),
+  },
+  skillBox: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
   }
 }));
 
@@ -91,15 +100,15 @@ const Aptitudes = () => {
   const skills = [
     { title: 'Frontend Developer', 
       content: [
-        {name: 'HTML', percent: 80},
-        {name: 'CSS', percent: 80},
-        {name: 'JavaScript', percent: 70},
-        {name: 'jQuery', percent: 42},
-        {name: 'Bootstrap', percent: 95},
-        {name: 'React', percent: 78},
-        {name: 'Material-UI', percent: 70},
-        {name: 'Vue', percent: 56},
-        {name: 'Vuetify', percent: 50},
+        {name: 'HTML', percent: 80, icon:<SvgIcon component={HtmlIcon} viewBox="0 0 500 475"/>},
+        {name: 'CSS', percent: 80, icon: <SvgIcon component={CssIcon} viewBox="0 0 500 475"/>},
+        {name: 'JavaScript', percent: 70, icon: <SvgIcon component={JsIcon} color="#FFE100" viewBox="0 0 500 475"/>},
+        {name: 'jQuery', percent: 42, icon: <LaptopMacIcon />},
+        {name: 'Bootstrap', percent: 95, icon: <LaptopMacIcon />},
+        {name: 'React', percent: 78, icon: <LaptopMacIcon />},
+        {name: 'Material-UI', percent: 70, icon: <LaptopMacIcon />},
+        {name: 'Vue', percent: 56, icon: <LaptopMacIcon />},
+        {name: 'Vuetify', percent: 50, icon: <LaptopMacIcon />},
       ]
     },
     { title: 'Backend Developer', 
@@ -113,19 +122,14 @@ const Aptitudes = () => {
     }
   ];
 
-  const qualification = [
-    {title: 'Eat', content: 'Because you need strength' , icon: <FastfoodIcon />, color: 'secondary'},
-    {title: 'Code', content: 'Because it&apos;s awesome!' , icon: <LaptopMacIcon />, color: 'primary'}
-  ];
-
   const education = [
-    { title: 'INGENIERÍA DE SISTEMAS', institution: 'Universidad Libre seccional Barranquilla', date: '2021-2: Séptimo semestre', state: 'En curso', icon: <FastfoodIcon />, color: 'secondary'},
-    { title: 'BACHILLER CON PROFUNDIZACIÓN EN PEDAGOGÍA', institution: 'Escuela Normal Superior del Distrito de Barranquilla', date: '2017', state: 'Finalizado', icon: <LaptopMacIcon />, color: 'primary'}
+    { title: 'INGENIERÍA DE SISTEMAS', institution: 'Universidad Libre seccional Barranquilla', date: '2021-2: Séptimo semestre', state: 'En curso', icon: <LaptopMacIcon />, color: 'secondary'},
+    { title: 'BACHILLER CON PROFUNDIZACIÓN EN PEDAGOGÍA', institution: 'Escuela Normal Superior del Distrito de Barranquilla', date: '2017', state: 'Finalizado', icon: <AssignmentIcon />, color: 'primary'}
   ];
 
   const work = [
-    { project: 'Sitio web', charge: 'Ingeniero de desarrollo de destajo', activities: 'Frontend de la página (HTML, CSS, BOOTSTRAP y JQUERY)', enterprise: 'Horbath Technologies', date: 'Octubre del 2020 hasta Enero del 2021', icon: <FastfoodIcon />, color: 'secondary'},
-    { project: 'Sitio web', charge: 'Tester', activities: 'Testing y documentación web, móvil y CMS', enterprise: 'Horbath Technologies', date: 'Febrero del 2021', icon: <LaptopMacIcon />, color: 'primary'}
+    { project: 'Sitio web', charge: 'Ingeniero de desarrollo de destajo', activities: 'Frontend de la página (HTML, CSS, BOOTSTRAP y JQUERY)', enterprise: 'Horbath Technologies', date: 'Octubre del 2020 hasta Enero del 2021', icon: <LaptopMacIcon />, color: 'secondary'},
+    { project: 'Sitio web', charge: 'Tester', activities: 'Testing y documentación web, móvil y CMS', enterprise: 'Horbath Technologies', date: 'Febrero del 2021', icon: <AssignmentIcon />, color: 'primary'}
   ];
   
   const showQuali = () => {
@@ -191,66 +195,28 @@ const Aptitudes = () => {
               <Box textAlign="center" pb="1rem">
                 My technical level
               </Box>
-            <Grid container spacing={5}>
-            { skills.map(skill => (
-              <Grid item xs={12} sm={6} key={skill.title}>   
-                <ScrollAnimation 
-                  animateIn='fadeIn' 
-                  duration={5} 
-                  animateOnce={true}
-                  afterAnimatedIn={  
-                    function(visible) {
-                      if (visible.inViewport) {
-                        // Part of the element is in the viewport (the area defined by the offset property)
-                        // console.log('aja view')
-                      } else if (visible.onScreen) {
-                        // Part of the element is visible on the screen
-                      } else {
-                        // Element is no longer visible
-                      }
-                    }}
-                  >
-                  <Accordion >
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon color="primary" />}
-                      aria-controls={skill.title+'-content'}
-                      id={skill.title+'-header'}
-                      
-                    >
-                      <Typography color="textSecondary">
-                        <Box fontSize="h5.fontSize"  fontWeight="fontWeightBold">
-                          {skill.title}
-                        </Box>
-                      </Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <Typography className={classes.root}>
-                        { skill.content.map( cont => (
-                        <Box mb={1} key={cont.name}>
-                          <Grid container>
-                            <Grid item xs={12} sm={6}>
-                              <Typography variant="body2" color="textSecondary" align="left">
-                                <Box fontWeight="fontWeightBold">
-                                  {cont.name}
-                                </Box>
-                              </Typography>
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                              <Typography variant="body2" color="textSecondary" align="right">
-                                {`${cont.percent}%`}
-                              </Typography>
-                            </Grid>
-                          </Grid>
-                          <BorderLinearProgress variant="determinate" value={cont.percent} />
-                        </Box>
-                        ))}
-                      </Typography>
-                    </AccordionDetails>
-                  </Accordion>
-                </ScrollAnimation>      
-              </Grid>
-            ))}
-            </Grid>
+            <Container>
+              { skills.map(skill => (
+                <div key={skill.title}>
+                  <Box fontSize="h4.fontSize"  fontWeight="fontWeightBold" textAlign="center" pt={2}>
+                    {skill.title}
+                  </Box>
+                  <Grid container alignItems="center" style={{justifyContent: 'center', padding: '2rem'}}>
+                    { skill.content.map( cont => (
+                      <Grid item xs={12} sm={6} md={3} key={cont.name}>
+                          <Box mb={2} className={classes.skillBox}> 
+                          <ScrollAnimation animateIn='wobble'
+                          initiallyVisible={true}>
+                            <Avatar >{cont.icon}</Avatar>
+                    </ ScrollAnimation>
+                            {cont.name}
+                            </Box>
+                        </Grid>
+                    ))}
+                  </Grid>
+                </div>
+              ))}
+            </Container>
             </Typography>
           </Container>
         </section>
