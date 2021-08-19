@@ -3,10 +3,10 @@ import { Grid, Container, Box,Typography, Button, Paper } from '@material-ui/cor
 import { makeStyles, ThemeProvider} from '@material-ui/core/styles';
 import foto2 from '../assets/photo2.jpeg';
 import { Hidden } from "@material-ui/core";
-import ScrollAnimation from 'react-animate-on-scroll';
+// import ScrollAnimation from 'react-animate-on-scroll';
 import "animate.css/animate.min.css";
-import cvSpan from '../assets/docs/cv_dev.pdf';
-import cvEn from '../assets/docs/cv_dev_en.pdf';
+// import cvSpan from '../assets/docs/cv_dev.pdf';
+// import cvEn from '../assets/docs/cv_en_2.pdf';
 
 const useStyles = makeStyles((theme) => ({
   gran: {
@@ -94,7 +94,7 @@ const AboutMe = () => {
                     <Button variant="contained" color="primary" 
                       href="https://github.com/KarlaG6/portfolio/raw/main/src/assets/docs/cv_dev.pdf" download="cv_karla_galvis_span.pdf">Descargar CV español</Button>
                     <Button variant="contained" color="primary"  
-                      href="https://github.com/KarlaG6/portfolio/raw/main/src/assets/docs/cv_dev_en.pdf" download="cv_karla_galvis_en.pdf">Download english CV</Button>
+                      href="https://github.com/KarlaG6/portfolio/raw/main/src/assets/docs/cv_en_2.pdf" download="cv_karla_galvis_en.pdf">Download english CV</Button>
                   </div>
                 </Hidden> 
               </div>      
@@ -131,7 +131,7 @@ const AboutMe = () => {
                   <Button variant="contained" color="primary" 
                     href="https://github.com/KarlaG6/portfolio/raw/main/src/assets/docs/cv_dev.pdf" download="cv_karla_galvis_span.pdf">Descargar CV español</Button>
                   <Button variant="contained" color="primary"  
-                    href="https://github.com/KarlaG6/portfolio/raw/main/src/assets/docs/cv_dev_en.pdf" download="cv_karla_galvis_en.pdf">Download english CV</Button>
+                    href="https://github.com/KarlaG6/portfolio/raw/main/src/assets/docs/cv_en_2.pdf" download="cv_karla_galvis_en.pdf">Download english CV</Button>
                 </div>
                 
               {/* <ScrollAnimation animateIn='wobble'

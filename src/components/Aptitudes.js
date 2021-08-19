@@ -10,8 +10,11 @@ import AssignmentIcon from '@material-ui/icons/Assignment';
 import LaptopMacIcon from '@material-ui/icons/LaptopMac';
 import ScrollAnimation from 'react-animate-on-scroll';
 import {ReactComponent as CssIcon} from '../assets/icons/css-3.svg';
-import {ReactComponent as HtmlIcon} from '../assets/icons/html5.svg';
+import {ReactComponent as HtmlIcon} from '../assets/icons/html-5.svg';
 import {ReactComponent as JsIcon} from '../assets/icons/js.svg';
+import {ReactComponent as JqueryIcon} from '../assets/icons/jquery-icon.svg';
+import {ReactComponent as ReactJsIcon} from '../assets/icons/react-js.svg';
+import {ReactComponent as MySQLIcon} from '../assets/icons/mysql.svg';
 import "animate.css/animate.min.css";
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -100,24 +103,24 @@ const Aptitudes = () => {
   const skills = [
     { title: 'Frontend Developer', 
       content: [
-        {name: 'HTML', percent: 80, icon:<SvgIcon component={HtmlIcon} viewBox="0 0 500 475"/>},
+        {name: 'HTML', percent: 80, icon:<SvgIcon component={HtmlIcon} viewBox="0 0 440 370" style={{fontSize: '2.4rem'}} />},
         {name: 'CSS', percent: 80, icon: <SvgIcon component={CssIcon} viewBox="0 0 500 475"/>},
         {name: 'JavaScript', percent: 70, icon: <SvgIcon component={JsIcon} color="#FFE100" viewBox="0 0 500 475"/>},
-        {name: 'jQuery', percent: 42, icon: <LaptopMacIcon />},
+        {name: 'jQuery', percent: 42, icon: <SvgIcon component={JqueryIcon} style={{color: '#0868ac'}} viewBox="0 0 30 35"/>},
         {name: 'Bootstrap', percent: 95, icon: <LaptopMacIcon />},
-        {name: 'React', percent: 78, icon: <LaptopMacIcon />},
+        {name: 'React.JS', percent: 78, icon: <SvgIcon component={ReactJsIcon} viewBox="0 0 220 240" style={{fontSize: '2rem'}} />},
         {name: 'Material-UI', percent: 70, icon: <LaptopMacIcon />},
-        {name: 'Vue', percent: 56, icon: <LaptopMacIcon />},
+        {name: 'Vue.JS', percent: 56, icon: <LaptopMacIcon />},
         {name: 'Vuetify', percent: 50, icon: <LaptopMacIcon />},
       ]
     },
     { title: 'Backend Developer', 
       content: [
-        {name: 'MySQL', percent: 75},
-        {name: 'SQLite', percent: 67},
-        {name: 'Flask', percent: 70},
-        {name: 'PHP', percent: 30},
-        {name: 'Django', percent: 20},
+        {name: 'MySQL', percent: 75, icon: <SvgIcon component={MySQLIcon} viewBox="0 0 500 475"/>},
+        {name: 'SQLite', percent: 67, icon: <LaptopMacIcon />},
+        {name: 'Flask', percent: 70, icon: <LaptopMacIcon />},
+        {name: 'PHP', percent: 30, icon: <LaptopMacIcon />},
+        {name: 'Django', percent: 20, icon: <LaptopMacIcon />},
       ]
     }
   ];
