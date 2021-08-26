@@ -129,7 +129,7 @@ const AboutMe = () => {
                 </Box>
                 <div className={classes.downloadBtns}>
                   <Button variant="contained" color="primary" 
-                    href="https://github.com/KarlaG6/portfolio/raw/main/src/assets/docs/cv_dev.pdf" download="cv_karla_galvis_span.pdf">Descargar CV español</Button>
+                    href="https://github.com/KarlaG6/portfolio/raw/main/src/assets/docs/cv_dev_span.pdf" download="cv_karla_galvis_span.pdf">Descargar CV español</Button>
                   <Button variant="contained" color="primary"  
                     href="https://github.com/KarlaG6/portfolio/raw/main/src/assets/docs/cv_en_2.pdf" download="cv_karla_galvis_en.pdf">Download english CV</Button>
                 </div>
