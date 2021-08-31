@@ -15,6 +15,7 @@ import songsSS from '../assets/appsSS/songsAppSS.png';
 import imgsSS from '../assets/appsSS/imagesAppSS.png';
 import weatherSS from '../assets/appsSS/weatherAppSS.png';
 import cotiSS from '../assets/appsSS/cotiAppSS.png';
+import rickandmortySS from '../assets/appsSS/rickandmortySS.jpeg';
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -63,6 +64,7 @@ const Portfolio = () => {
     { name: 'Images', desc: 'A single web app with React', img: imgsSS, link: 'https://jolly-hamilton-f5243d.netlify.app'},
     { name: 'Weather', desc: 'A single web app with React', img: weatherSS, link: 'https://youthful-sinoussi-41f946.netlify.app'},
     { name: 'Cotizador', desc: 'A single web app with React', img: cotiSS, link: 'https://pedantic-agnesi-27f30e.netlify.app'},
+    { name: 'Rick and Morty', desc: 'A simple web app with Vue JS', img: rickandmortySS, link: 'https://mystifying-bohr-0163c7.netlify.app'},
   ];
 
   return ( 
