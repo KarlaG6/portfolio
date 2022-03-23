@@ -11,7 +11,8 @@ const useStyles = makeStyles((theme) => ({
     // backgroundColor: myTheme.palette.secondary.light,
     backgroundColor: '#e6fbfb',
     height: '100vh',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    display: 'flex'
   },
   myHello: {
     background: `url(${blob}) no-repeat`,

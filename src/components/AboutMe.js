@@ -113,17 +113,17 @@ const AboutMe = () => {
                       {/* <ScrollAnimation animateIn='wobble'
                         initiallyVisible={true}
                         > */}
-                        <span>0+</span>
-                        <Box fontSize={7}>Años de experiencia</Box>
+                        <span>10+</span>
+                        <Box fontSize={12}>Meses de experiencia</Box>
                       {/* </ScrollAnimation> */}
                       </Grid>
                       <Grid item xs={12} sm={4}>
                         10/10
-                        <Box fontSize={7}>Responsabilidad</Box>
+                        <Box fontSize={12}>Responsabilidad</Box>
                       </Grid>
                       <Grid item xs={12} sm={4}>
                         ∞ 
-                        <Box fontSize={7}>Ganas de crecer como desarrolladora</Box>
+                        <Box fontSize={12}>Ganas de crecer como desarrolladora</Box>
                       </Grid>
                     </Grid>
                 </Box>

@@ -112,6 +112,8 @@ const Aptitudes = () => {
         {name: 'Material-UI', percent: 70, icon: <LaptopMacIcon />},
         {name: 'Vue.JS', percent: 56, icon: <LaptopMacIcon />},
         {name: 'Vuetify', percent: 50, icon: <LaptopMacIcon />},
+        {name: 'VTEX.IO', percent: 50, icon: <LaptopMacIcon />},
+        {name: 'Sass', percent: 50, icon: <LaptopMacIcon />},
       ]
     },
     { title: 'Backend Developer', 
@@ -121,6 +123,7 @@ const Aptitudes = () => {
         {name: 'Flask', percent: 70, icon: <LaptopMacIcon />},
         {name: 'PHP', percent: 30, icon: <LaptopMacIcon />},
         {name: 'Django', percent: 20, icon: <LaptopMacIcon />},
+        {name: 'DRF', percent: 20, icon: <LaptopMacIcon />},
       ]
     }
   ];
@@ -131,8 +134,9 @@ const Aptitudes = () => {
   ];
 
   const work = [
-    { project: 'Sitio web', charge: 'Ingeniero de desarrollo de destajo', activities: 'Frontend de la página (HTML, CSS, BOOTSTRAP y JQUERY)', enterprise: 'Horbath Technologies', date: 'Octubre del 2020 hasta Enero del 2021', icon: <LaptopMacIcon />, color: 'secondary'},
-    { project: 'Sitio web', charge: 'Tester', activities: 'Testing y documentación web, móvil y CMS', enterprise: 'Horbath Technologies', date: 'Febrero del 2021', icon: <AssignmentIcon />, color: 'primary'}
+    { technologies: 'HTML, CSS, BOOTSTRAP y JQUERY', charge: 'Ingeniero de desarrollo de destajo', activities: 'Frontend de la página', enterprise: 'Horbath Technologies', date: 'Octubre del 2020 hasta Enero del 2021', icon: <LaptopMacIcon />, color: 'secondary'},
+    { technologies: 'Sitio web', charge: 'Tester', activities: 'Testing y documentación web, móvil y CMS', enterprise: 'Horbath Technologies', date: 'Febrero del 2021', icon: <AssignmentIcon />, color: 'primary'},
+    { technologies: 'VTEX.IO, React.JS, Sass, Django', charge: 'Full-stack development', activities: '', enterprise: 'SMK Digital Studio', date: 'Noviembre del 2021 - Marzo 2022', icon: <AssignmentIcon />, color: 'secondary'}
   ];
   
   const showQuali = () => {
@@ -150,33 +154,36 @@ const Aptitudes = () => {
           <TimelineContent>
             <Paper elevation={3} className={classes.paper}>
               <Typography variant="h6" component="h1">
-                {work[i].project}
+                {work[i].charge}
               </Typography>
-              <Typography>{work[i].charge}</Typography>
+              <Typography>{work[i].technologies}</Typography>
               <Typography component="span" variant="caption">{work[i].date}</Typography>
             </Paper>
           </TimelineContent>
         </TimelineItem>);
 
         // Ed
-        qualiCards.push(
-        <TimelineItem key={education[i].title}>
-          <TimelineSeparator>
-            <TimelineDot color={education[i].color}>
-            {education[i].icon}
-            </TimelineDot>
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>
-            <Paper elevation={3} className={classes.paper}>
-              <Typography variant="h6" component="h1">
-                {education[i].title}
-              </Typography>
-              <Typography>{education[i].institution}</Typography>
-              <Typography component="span" variant="caption">{education[i].date}</Typography>
-            </Paper>
-          </TimelineContent>
-        </TimelineItem>);
+        if (education[i] !== undefined) {
+          qualiCards.push(
+          <TimelineItem key={education[i].title}>
+            <TimelineSeparator>
+              <TimelineDot color={education[i].color}>
+              {education[i].icon}
+              </TimelineDot>
+              <TimelineConnector />
+            </TimelineSeparator>
+            <TimelineContent>
+              <Paper elevation={3} className={classes.paper}>
+                <Typography variant="h6" component="h1">
+                  {education[i].title}
+                  {console.log(education[i].title, i, education[i].color)}
+                </Typography>
+                <Typography>{education[i].institution}</Typography>
+                <Typography component="span" variant="caption">{education[i].date}</Typography>
+              </Paper>
+            </TimelineContent>
+          </TimelineItem>);
+        }
     }
     return qualiCards
   };
